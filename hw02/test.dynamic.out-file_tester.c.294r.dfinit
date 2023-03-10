@@ -1,0 +1,3036 @@
+
+;; Function file_tester_create (file_tester_create, funcdef_no=6, decl_uid=2023, cgraph_uid=7, symbol_order=6)
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 16.
+verify found no changes in insn with uid = 26.
+
+
+file_tester_create
+
+Dataflow summary:
+;;  fully invalidated by EH 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 28 [mm0] 29 [mm1] 30 [mm2] 31 [mm3] 32 [mm4] 33 [mm5] 34 [mm6] 35 [mm7] 36 [r8] 37 [r9] 38 [r10] 39 [r11] 44 [xmm8] 45 [xmm9] 46 [xmm10] 47 [xmm11] 48 [xmm12] 49 [xmm13] 50 [xmm14] 51 [xmm15] 52 [xmm16] 53 [xmm17] 54 [xmm18] 55 [xmm19] 56 [xmm20] 57 [xmm21] 58 [xmm22] 59 [xmm23] 60 [xmm24] 61 [xmm25] 62 [xmm26] 63 [xmm27] 64 [xmm28] 65 [xmm29] 66 [xmm30] 67 [xmm31] 68 [k0] 69 [k1] 70 [k2] 71 [k3] 72 [k4] 73 [k5] 74 [k6] 75 [k7]
+;;  hardware regs used 	
+;;  regular block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 16 [argp] 19 [frame] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 36 [r8] 37 [r9]
+;;  exit block uses 	 0 [ax] 6 [bp] 7 [sp] 19 [frame]
+;;  regs ever live 	 0 [ax] 1 [dx] 4 [si] 5 [di] 7 [sp]
+;;  ref usage 	r0={6d,4u} r1={5d,1u} r2={4d} r4={7d,3u} r5={7d,4u} r6={1d,2u} r7={1d,5u} r8={3d} r9={3d} r10={3d} r11={3d} r12={3d} r13={3d} r14={3d} r15={3d} r16={1d,1u} r17={3d} r18={3d} r19={1d,10u} r20={4d} r21={4d} r22={4d} r23={4d} r24={4d} r25={4d} r26={4d} r27={4d} r28={3d} r29={3d} r30={3d} r31={3d} r32={3d} r33={3d} r34={3d} r35={3d} r36={4d} r37={4d} r38={3d} r39={3d} r44={3d} r45={3d} r46={3d} r47={3d} r48={3d} r49={3d} r50={3d} r51={3d} r52={3d} r53={3d} r54={3d} r55={3d} r56={3d} r57={3d} r58={3d} r59={3d} r60={3d} r61={3d} r62={3d} r63={3d} r64={3d} r65={3d} r66={3d} r67={3d} r68={3d} r69={3d} r70={3d} r71={3d} r72={3d} r73={3d} r74={3d} r75={3d} r82={1d,1u} r83={1d,1u} r84={1d,1u} r85={1d,1u} r86={1d,1u} r87={1d,1u} r88={1d,1u} r89={1d,1u} r90={1d,1u} 
+;;    total ref usage 277{238d,39u,0e} in 26{23 regular + 3 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       ENTRY (FALLTHRU)
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [1 name+0 S8 A64])
+        (reg:DI 5 di [ name ])) "tester/file_tester.c":7:52 80 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg:DI 4 si)
+        (const_int 40 [0x28])) "tester/file_tester.c":8:32 80 {*movdi_internal}
+     (nil))
+(insn 7 6 8 2 (set (reg:DI 5 di)
+        (const_int 1 [0x1])) "tester/file_tester.c":8:32 80 {*movdi_internal}
+     (nil))
+(call_insn 8 7 9 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("calloc") [flags 0x41]  <function_decl 0x7f20b72d8500 calloc>) [0 __builtin_calloc S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":8:32 909 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 9 8 10 2 (set (reg/f:DI 86)
+        (reg:DI 0 ax)) "tester/file_tester.c":8:32 80 {*movdi_internal}
+     (expr_list:REG_NOALIAS (reg/f:DI 86)
+        (nil)))
+(insn 10 9 11 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])
+        (reg/f:DI 86)) "tester/file_tester.c":8:32 80 {*movdi_internal}
+     (nil))
+(insn 11 10 12 2 (set (reg/f:DI 82 [ _1 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":9:17 80 {*movdi_internal}
+     (nil))
+(insn 12 11 13 2 (set (reg:DI 87)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [1 name+0 S8 A64])) "tester/file_tester.c":9:3 80 {*movdi_internal}
+     (nil))
+(insn 13 12 14 2 (set (reg:DI 1 dx)
+        (const_int 20 [0x14])) "tester/file_tester.c":9:3 80 {*movdi_internal}
+     (nil))
+(insn 14 13 15 2 (set (reg:DI 4 si)
+        (reg:DI 87)) "tester/file_tester.c":9:3 80 {*movdi_internal}
+     (nil))
+(insn 15 14 16 2 (set (reg:DI 5 di)
+        (reg/f:DI 82 [ _1 ])) "tester/file_tester.c":9:3 80 {*movdi_internal}
+     (nil))
+(call_insn 16 15 17 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("strncpy") [flags 0x41]  <function_decl 0x7f20b72c0e00 strncpy>) [0 __builtin_strncpy S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":9:3 909 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (set (reg:DI 0 ax)
+            (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (expr_list:DI (use (reg:DI 1 dx))
+                    (nil))))))
+(insn 17 16 18 2 (set (reg/f:DI 88)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":10:22 80 {*movdi_internal}
+     (nil))
+(insn 18 17 19 2 (set (mem/f:DI (plus:DI (reg/f:DI 88)
+                (const_int 24 [0x18])) [2 tester_5->inner_file+0 S8 A64])
+        (const_int 0 [0])) "tester/file_tester.c":10:22 80 {*movdi_internal}
+     (nil))
+(insn 19 18 20 2 (set (reg/f:DI 89)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":11:17 80 {*movdi_internal}
+     (nil))
+(insn 20 19 21 2 (set (mem:SI (plus:DI (reg/f:DI 89)
+                (const_int 32 [0x20])) [4 tester_5->error+0 S4 A64])
+        (const_int 0 [0])) "tester/file_tester.c":11:17 81 {*movsi_internal}
+     (nil))
+(insn 21 20 22 2 (set (reg/f:DI 83 [ _2 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":12:49 80 {*movdi_internal}
+     (nil))
+(insn 22 21 23 2 (set (reg:DI 4 si)
+        (reg/f:DI 83 [ _2 ])) "tester/file_tester.c":12:3 80 {*movdi_internal}
+     (nil))
+(insn 23 22 24 2 (set (reg:DI 90)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7f20b7027360 *.LC0>)) "tester/file_tester.c":12:3 80 {*movdi_internal}
+     (nil))
+(insn 24 23 25 2 (set (reg:DI 5 di)
+        (reg:DI 90)) "tester/file_tester.c":12:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7f20b7027360 *.LC0>)
+        (nil)))
+(insn 25 24 26 2 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":12:3 83 {*movqi_internal}
+     (nil))
+(call_insn 26 25 27 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":12:3 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (nil)))))
+(insn 27 26 30 2 (set (reg/f:DI 84 [ _11 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":13:10 80 {*movdi_internal}
+     (nil))
+(insn 30 27 34 2 (set (reg/f:DI 85 [ <retval> ])
+        (reg/f:DI 84 [ _11 ])) "tester/file_tester.c":13:10 80 {*movdi_internal}
+     (nil))
+(insn 34 30 35 2 (set (reg/i:DI 0 ax)
+        (reg/f:DI 85 [ <retval> ])) "tester/file_tester.c":14:1 80 {*movdi_internal}
+     (nil))
+(insn 35 34 0 2 (use (reg/i:DI 0 ax)) "tester/file_tester.c":14:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function file_tester_destory (file_tester_destory, funcdef_no=7, decl_uid=2025, cgraph_uid=8, symbol_order=7)
+
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 24.
+verify found no changes in insn with uid = 31.
+verify found no changes in insn with uid = 36.
+
+
+file_tester_destory
+
+Dataflow summary:
+;;  fully invalidated by EH 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 28 [mm0] 29 [mm1] 30 [mm2] 31 [mm3] 32 [mm4] 33 [mm5] 34 [mm6] 35 [mm7] 36 [r8] 37 [r9] 38 [r10] 39 [r11] 44 [xmm8] 45 [xmm9] 46 [xmm10] 47 [xmm11] 48 [xmm12] 49 [xmm13] 50 [xmm14] 51 [xmm15] 52 [xmm16] 53 [xmm17] 54 [xmm18] 55 [xmm19] 56 [xmm20] 57 [xmm21] 58 [xmm22] 59 [xmm23] 60 [xmm24] 61 [xmm25] 62 [xmm26] 63 [xmm27] 64 [xmm28] 65 [xmm29] 66 [xmm30] 67 [xmm31] 68 [k0] 69 [k1] 70 [k2] 71 [k3] 72 [k4] 73 [k5] 74 [k6] 75 [k7]
+;;  hardware regs used 	
+;;  regular block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 16 [argp] 19 [frame] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 36 [r8] 37 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 19 [frame]
+;;  regs ever live 	 0 [ax] 5 [di] 7 [sp] 17 [flags]
+;;  ref usage 	r0={5d} r1={5d} r2={5d} r4={5d} r5={9d,5u} r6={1d,8u} r7={1d,12u} r8={4d} r9={4d} r10={4d} r11={4d} r12={4d} r13={4d} r14={4d} r15={4d} r16={1d,7u} r17={6d,2u} r18={4d} r19={1d,13u} r20={5d} r21={5d} r22={5d} r23={5d} r24={5d} r25={5d} r26={5d} r27={5d} r28={4d} r29={4d} r30={4d} r31={4d} r32={4d} r33={4d} r34={4d} r35={4d} r36={5d} r37={5d} r38={4d} r39={4d} r44={4d} r45={4d} r46={4d} r47={4d} r48={4d} r49={4d} r50={4d} r51={4d} r52={4d} r53={4d} r54={4d} r55={4d} r56={4d} r57={4d} r58={4d} r59={4d} r60={4d} r61={4d} r62={4d} r63={4d} r64={4d} r65={4d} r66={4d} r67={4d} r68={4d} r69={4d} r70={4d} r71={4d} r72={4d} r73={4d} r74={4d} r75={4d} r82={1d,1u} r83={1d,1u} r84={1d,1u} r85={1d,1u} r86={1d,1u} r87={1d,1u} r88={1d,1u} r89={1d,1u} r90={1d,1u} 
+;;    total ref usage 358{302d,56u,0e} in 24{20 regular + 4 call} insns.
+(note 1 0 4 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 3, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       ENTRY (FALLTHRU)
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])
+        (reg:DI 5 di [ tester ])) "tester/file_tester.c":16:54 80 {*movdi_internal}
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 85)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":17:13 80 {*movdi_internal}
+     (nil))
+(insn 7 6 8 2 (set (reg/f:DI 82 [ _1 ])
+        (mem/f:DI (plus:DI (reg/f:DI 85)
+                (const_int 24 [0x18])) [2 tester_7(D)->inner_file+0 S8 A64])) "tester/file_tester.c":17:13 80 {*movdi_internal}
+     (nil))
+(insn 8 7 9 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 82 [ _1 ])
+            (const_int 0 [0]))) "tester/file_tester.c":17:6 8 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 9 8 10 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 15)
+            (pc))) "tester/file_tester.c":17:6 891 {*jcc}
+     (nil)
+ -> 15)
+;;  succ:       3 (FALLTHRU)
+;;              4
+
+;; basic block 3, loop depth 0, maybe hot
+;;  prev block 2, next block 4, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       2 (FALLTHRU)
+;; bb 3 artificial_defs: { }
+;; bb 3 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 10 9 11 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 11 10 12 3 (set (reg/f:DI 86)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":18:5 80 {*movdi_internal}
+     (nil))
+(insn 12 11 13 3 (set (reg/f:DI 83 [ _2 ])
+        (mem/f:DI (plus:DI (reg/f:DI 86)
+                (const_int 24 [0x18])) [2 tester_7(D)->inner_file+0 S8 A64])) "tester/file_tester.c":18:5 80 {*movdi_internal}
+     (nil))
+(insn 13 12 14 3 (set (reg:DI 5 di)
+        (reg/f:DI 83 [ _2 ])) "tester/file_tester.c":18:5 80 {*movdi_internal}
+     (nil))
+(call_insn 14 13 15 3 (call (mem:QI (symbol_ref:DI ("file_release") [flags 0x41]  <function_decl 0x7f20b7341500 file_release>) [0 file_release S1 A8])
+        (const_int 0 [0])) "tester/file_tester.c":18:5 898 {*call}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       4 (FALLTHRU)
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 3, next block 5, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       2
+;;              3 (FALLTHRU)
+;; bb 4 artificial_defs: { }
+;; bb 4 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 15 14 16 4 4 (nil) [1 uses])
+(note 16 15 17 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 17 16 18 4 (set (reg/f:DI 87)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":20:13 80 {*movdi_internal}
+     (nil))
+(insn 18 17 19 4 (set (reg:SI 84 [ _3 ])
+        (mem:SI (plus:DI (reg/f:DI 87)
+                (const_int 32 [0x20])) [4 tester_7(D)->error+0 S4 A64])) "tester/file_tester.c":20:13 81 {*movsi_internal}
+     (nil))
+(insn 19 18 20 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 84 [ _3 ])
+            (const_int 0 [0]))) "tester/file_tester.c":20:6 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 20 19 21 4 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 27)
+            (pc))) "tester/file_tester.c":20:6 891 {*jcc}
+     (nil)
+ -> 27)
+;;  succ:       5 (FALLTHRU)
+;;              6
+
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       4 (FALLTHRU)
+;; bb 5 artificial_defs: { }
+;; bb 5 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 21 20 22 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 22 21 23 5 (set (reg:DI 88)
+        (symbol_ref/f:DI ("*.LC1") [flags 0x2]  <var_decl 0x7f20b7027870 *.LC1>)) "tester/file_tester.c":21:5 80 {*movdi_internal}
+     (nil))
+(insn 23 22 24 5 (set (reg:DI 5 di)
+        (reg:DI 88)) "tester/file_tester.c":21:5 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC1") [flags 0x2]  <var_decl 0x7f20b7027870 *.LC1>)
+        (nil)))
+(call_insn 24 23 39 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":21:5 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 39 24 40 5 (set (pc)
+        (label_ref 32)) -1
+     (nil)
+ -> 32)
+;;  succ:       7 [always] 
+
+(barrier 40 39 27)
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       4
+;; bb 6 artificial_defs: { }
+;; bb 6 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 27 40 28 6 5 (nil) [1 uses])
+(note 28 27 29 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 29 28 30 6 (set (reg:DI 89)
+        (symbol_ref/f:DI ("*.LC2") [flags 0x2]  <var_decl 0x7f20b7027900 *.LC2>)) "tester/file_tester.c":23:5 80 {*movdi_internal}
+     (nil))
+(insn 30 29 31 6 (set (reg:DI 5 di)
+        (reg:DI 89)) "tester/file_tester.c":23:5 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC2") [flags 0x2]  <var_decl 0x7f20b7027900 *.LC2>)
+        (nil)))
+(call_insn 31 30 32 6 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":23:5 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       7 (FALLTHRU)
+
+;; basic block 7, loop depth 0, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       6 (FALLTHRU)
+;;              5 [always] 
+;; bb 7 artificial_defs: { }
+;; bb 7 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 32 31 33 7 6 (nil) [1 uses])
+(note 33 32 34 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 34 33 35 7 (set (reg:DI 90)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":25:3 80 {*movdi_internal}
+     (nil))
+(insn 35 34 36 7 (set (reg:DI 5 di)
+        (reg:DI 90)) "tester/file_tester.c":25:3 80 {*movdi_internal}
+     (nil))
+(call_insn 36 35 41 7 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7f20b72ddc00 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "tester/file_tester.c":25:3 898 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       8 [always]  (FALLTHRU) tester/file_tester.c:26:1
+
+;; basic block 8, loop depth 0, maybe hot
+;;  prev block 7, next block 1, flags: (NEW, RTL, MODIFIED)
+;;  pred:       7 [always]  (FALLTHRU) tester/file_tester.c:26:1
+;; bb 8 artificial_defs: { }
+;; bb 8 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 41 36 42 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 42 41 0 8 (const_int 0 [0]) "tester/file_tester.c":26:1 -1
+     (nil))
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function file_tester_init (file_tester_init, funcdef_no=8, decl_uid=2029, cgraph_uid=9, symbol_order=8)
+
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 38.
+verify found no changes in insn with uid = 43.
+verify found no changes in insn with uid = 61.
+verify found no changes in insn with uid = 68.
+verify found no changes in insn with uid = 84.
+verify found no changes in insn with uid = 104.
+verify found no changes in insn with uid = 123.
+verify found no changes in insn with uid = 136.
+verify found no changes in insn with uid = 151.
+verify found no changes in insn with uid = 160.
+
+
+file_tester_init
+
+Dataflow summary:
+;;  fully invalidated by EH 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 28 [mm0] 29 [mm1] 30 [mm2] 31 [mm3] 32 [mm4] 33 [mm5] 34 [mm6] 35 [mm7] 36 [r8] 37 [r9] 38 [r10] 39 [r11] 44 [xmm8] 45 [xmm9] 46 [xmm10] 47 [xmm11] 48 [xmm12] 49 [xmm13] 50 [xmm14] 51 [xmm15] 52 [xmm16] 53 [xmm17] 54 [xmm18] 55 [xmm19] 56 [xmm20] 57 [xmm21] 58 [xmm22] 59 [xmm23] 60 [xmm24] 61 [xmm25] 62 [xmm26] 63 [xmm27] 64 [xmm28] 65 [xmm29] 66 [xmm30] 67 [xmm31] 68 [k0] 69 [k1] 70 [k2] 71 [k3] 72 [k4] 73 [k5] 74 [k6] 75 [k7]
+;;  hardware regs used 	
+;;  regular block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 16 [argp] 19 [frame] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 36 [r8] 37 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 19 [frame]
+;;  regs ever live 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 7 [sp] 17 [flags]
+;;  ref usage 	r0={16d,6u} r1={17d,6u} r2={13d,1u} r4={19d,8u} r5={23d,12u} r6={1d,19u} r7={1d,30u} r8={11d} r9={11d} r10={11d} r11={11d} r12={11d} r13={11d} r14={11d} r15={11d} r16={1d,18u} r17={19d,8u} r18={11d} r19={1d,44u} r20={12d} r21={12d} r22={12d} r23={12d} r24={12d} r25={12d} r26={12d} r27={12d} r28={11d} r29={11d} r30={11d} r31={11d} r32={11d} r33={11d} r34={11d} r35={11d} r36={12d} r37={12d} r38={11d} r39={11d} r44={11d} r45={11d} r46={11d} r47={11d} r48={11d} r49={11d} r50={11d} r51={11d} r52={11d} r53={11d} r54={11d} r55={11d} r56={11d} r57={11d} r58={11d} r59={11d} r60={11d} r61={11d} r62={11d} r63={11d} r64={11d} r65={11d} r66={11d} r67={11d} r68={11d} r69={11d} r70={11d} r71={11d} r72={11d} r73={11d} r74={11d} r75={11d} r82={1d,1u} r83={1d,1u} r84={1d,1u} r85={1d,1u} r86={1d,1u} r87={1d,1u} r88={1d,1u} r89={1d,1u} r90={1d,1u} r91={1d,1u} r92={1d,1u} r93={1d,1u} r94={1d,1u} r95={1d,1u} r96={1d,1u} r97={1d,1u} r98={1d,1u} r99={1d,1u} r100={1d,1u} r101={1d,1u} r102={1d,1u} r103={1d,1u} r104={1d,1u} r105={1d,1u} r106={1d,1u} r107={1d,1u} r108={1d,1u} r109={1d,1u} r110={1d,1u} r111={1d,1u} r112={1d,1u} r113={1d,1u} r114={1d,1u} r115={1d,1u} r116={1d,1u} r117={1d,1u} r118={1d,1u} r119={1d,1u} r120={1d,1u} r121={1d,1u} r122={1d,1u} r123={1d,1u} r124={1d,1u} r125={1d,1u} r126={1d,1u} r127={1d,1u} r128={1d,1u} r129={1d,1u} r130={1d,1u} r131={1d,1u} r132={1d,1u} 
+;;    total ref usage 1046{843d,203u,0e} in 121{110 regular + 11 call} insns.
+(note 1 0 6 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 3, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       ENTRY (FALLTHRU)
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 6 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 6 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])
+        (reg:DI 5 di [ tester ])) "tester/file_tester.c":28:73 80 {*movdi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 type+0 S4 A32])
+        (reg:SI 4 si [ type ])) "tester/file_tester.c":28:73 81 {*movsi_internal}
+     (nil))
+(insn 4 3 5 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [1 name+0 S8 A64])
+        (reg:DI 1 dx [ name ])) "tester/file_tester.c":28:73 80 {*movdi_internal}
+     (nil))
+(note 5 4 8 2 NOTE_INSN_FUNCTION_BEG)
+(insn 8 5 9 2 (set (reg/f:DI 102)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":29:13 80 {*movdi_internal}
+     (nil))
+(insn 9 8 10 2 (set (reg:SI 82 [ _1 ])
+        (mem:SI (plus:DI (reg/f:DI 102)
+                (const_int 32 [0x20])) [4 tester_24(D)->error+0 S4 A64])) "tester/file_tester.c":29:13 81 {*movsi_internal}
+     (nil))
+(insn 10 9 11 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 82 [ _1 ])
+            (const_int 0 [0]))) "tester/file_tester.c":29:6 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 11 10 16 2 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 180)
+            (pc))) "tester/file_tester.c":29:6 891 {*jcc}
+     (nil)
+ -> 180)
+;;  succ:       19 tester/file_tester.c:30:5
+;;              3 (FALLTHRU)
+
+;; basic block 3, loop depth 0, maybe hot
+;;  prev block 2, next block 4, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       2 (FALLTHRU)
+;; bb 3 artificial_defs: { }
+;; bb 3 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 16 11 17 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 17 16 18 3 (set (reg/f:DI 103)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":31:3 80 {*movdi_internal}
+     (nil))
+(insn 18 17 19 3 (set (reg/f:DI 83 [ _2 ])
+        (mem/f:DI (plus:DI (reg/f:DI 103)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])) "tester/file_tester.c":31:3 80 {*movdi_internal}
+     (nil))
+(insn 19 18 20 3 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 83 [ _2 ])
+            (const_int 0 [0]))) "tester/file_tester.c":31:3 8 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 20 19 21 3 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 31)
+            (pc))) "tester/file_tester.c":31:3 891 {*jcc}
+     (nil)
+ -> 31)
+;;  succ:       5
+;;              4 (FALLTHRU)
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 3, next block 5, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       3 (FALLTHRU)
+;; bb 4 artificial_defs: { }
+;; bb 4 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 21 20 22 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 22 21 23 4 (set (reg:DI 104)
+        (symbol_ref:DI ("__PRETTY_FUNCTION__.0") [flags 0x2]  <var_decl 0x7f20b7211f30 __PRETTY_FUNCTION__>)) "tester/file_tester.c":31:3 80 {*movdi_internal}
+     (nil))
+(insn 23 22 24 4 (set (reg:DI 2 cx)
+        (reg:DI 104)) "tester/file_tester.c":31:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref:DI ("__PRETTY_FUNCTION__.0") [flags 0x2]  <var_decl 0x7f20b7211f30 __PRETTY_FUNCTION__>)
+        (nil)))
+(insn 24 23 25 4 (set (reg:SI 1 dx)
+        (const_int 31 [0x1f])) "tester/file_tester.c":31:3 81 {*movsi_internal}
+     (nil))
+(insn 25 24 26 4 (set (reg:DI 105)
+        (symbol_ref/f:DI ("*.LC3") [flags 0x2]  <var_decl 0x7f20b70273f0 *.LC3>)) "tester/file_tester.c":31:3 80 {*movdi_internal}
+     (nil))
+(insn 26 25 27 4 (set (reg:DI 4 si)
+        (reg:DI 105)) "tester/file_tester.c":31:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC3") [flags 0x2]  <var_decl 0x7f20b70273f0 *.LC3>)
+        (nil)))
+(insn 27 26 28 4 (set (reg:DI 106)
+        (symbol_ref/f:DI ("*.LC4") [flags 0x2]  <var_decl 0x7f20b703c000 *.LC4>)) "tester/file_tester.c":31:3 80 {*movdi_internal}
+     (nil))
+(insn 28 27 29 4 (set (reg:DI 5 di)
+        (reg:DI 106)) "tester/file_tester.c":31:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC4") [flags 0x2]  <var_decl 0x7f20b703c000 *.LC4>)
+        (nil)))
+(call_insn 29 28 30 4 (call (mem:QI (symbol_ref:DI ("__assert_fail") [flags 0x41]  <function_decl 0x7f20b7379600 __assert_fail>) [0 __assert_fail S1 A8])
+        (const_int 0 [0])) "tester/file_tester.c":31:3 898 {*call}
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (expr_list:REG_EH_REGION (const_int 0 [0])
+                (nil))))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+;;  succ:      
+
+(barrier 30 29 31)
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       3
+;; bb 5 artificial_defs: { }
+;; bb 5 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 31 30 32 5 10 (nil) [1 uses])
+(note 32 31 33 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 33 32 34 5 (set (reg:SI 107)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 type+0 S4 A32])) "tester/file_tester.c":32:3 81 {*movsi_internal}
+     (nil))
+(insn 34 33 35 5 (set (reg:SI 4 si)
+        (reg:SI 107)) "tester/file_tester.c":32:3 81 {*movsi_internal}
+     (nil))
+(insn 35 34 36 5 (set (reg:DI 108)
+        (symbol_ref/f:DI ("*.LC5") [flags 0x2]  <var_decl 0x7f20b703c090 *.LC5>)) "tester/file_tester.c":32:3 80 {*movdi_internal}
+     (nil))
+(insn 36 35 37 5 (set (reg:DI 5 di)
+        (reg:DI 108)) "tester/file_tester.c":32:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC5") [flags 0x2]  <var_decl 0x7f20b703c090 *.LC5>)
+        (nil)))
+(insn 37 36 38 5 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":32:3 83 {*movqi_internal}
+     (nil))
+(call_insn 38 37 39 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":32:3 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (nil)))))
+(insn 39 38 40 5 (set (reg:DI 109)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [1 name+0 S8 A64])) "tester/file_tester.c":33:24 80 {*movdi_internal}
+     (nil))
+(insn 40 39 41 5 (set (reg:SI 110)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 type+0 S4 A32])) "tester/file_tester.c":33:24 81 {*movsi_internal}
+     (nil))
+(insn 41 40 42 5 (set (reg:DI 4 si)
+        (reg:DI 109)) "tester/file_tester.c":33:24 80 {*movdi_internal}
+     (nil))
+(insn 42 41 43 5 (set (reg:SI 5 di)
+        (reg:SI 110)) "tester/file_tester.c":33:24 81 {*movsi_internal}
+     (nil))
+(call_insn 43 42 44 5 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("file_new") [flags 0x41]  <function_decl 0x7f20b7341400 file_new>) [0 file_new S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":33:24 909 {*call_value}
+     (nil)
+    (expr_list:SI (use (reg:SI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 44 43 45 5 (set (reg/f:DI 84 [ _3 ])
+        (reg:DI 0 ax)) "tester/file_tester.c":33:24 80 {*movdi_internal}
+     (nil))
+(insn 45 44 46 5 (set (reg/f:DI 111)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":33:22 80 {*movdi_internal}
+     (nil))
+(insn 46 45 49 5 (set (mem/f:DI (plus:DI (reg/f:DI 111)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])
+        (reg/f:DI 84 [ _3 ])) "tester/file_tester.c":33:22 80 {*movdi_internal}
+     (nil))
+(insn 49 46 50 5 (set (reg:CCGOC 17 flags)
+        (compare:CCGOC (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -12 [0xfffffffffffffff4])) [4 type+0 S4 A32])
+            (const_int 0 [0]))) "tester/file_tester.c":36:6 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 50 49 51 5 (set (pc)
+        (if_then_else (ge (reg:CCGOC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 73)
+            (pc))) "tester/file_tester.c":36:6 891 {*jcc}
+     (nil)
+ -> 73)
+;;  succ:       6 (FALLTHRU)
+;;              9
+
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       5 (FALLTHRU)
+;; bb 6 artificial_defs: { }
+;; bb 6 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 51 50 52 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 52 51 53 6 (set (reg/f:DI 112)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":37:15 80 {*movdi_internal}
+     (nil))
+(insn 53 52 54 6 (set (reg/f:DI 85 [ _4 ])
+        (mem/f:DI (plus:DI (reg/f:DI 112)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])) "tester/file_tester.c":37:15 80 {*movdi_internal}
+     (nil))
+(insn 54 53 55 6 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 85 [ _4 ])
+            (const_int 0 [0]))) "tester/file_tester.c":37:8 8 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 55 54 56 6 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 64)
+            (pc))) "tester/file_tester.c":37:8 891 {*jcc}
+     (nil)
+ -> 64)
+;;  succ:       7 (FALLTHRU)
+;;              8
+
+;; basic block 7, loop depth 0, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       6 (FALLTHRU)
+;; bb 7 artificial_defs: { }
+;; bb 7 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 56 55 57 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 57 56 58 7 (set (reg/f:DI 113)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":38:21 80 {*movdi_internal}
+     (nil))
+(insn 58 57 59 7 (set (mem:SI (plus:DI (reg/f:DI 113)
+                (const_int 32 [0x20])) [4 tester_24(D)->error+0 S4 A64])
+        (const_int 1 [0x1])) "tester/file_tester.c":38:21 81 {*movsi_internal}
+     (nil))
+(insn 59 58 60 7 (set (reg:DI 114)
+        (symbol_ref/f:DI ("*.LC6") [flags 0x2]  <var_decl 0x7f20b703c120 *.LC6>)) "tester/file_tester.c":39:7 80 {*movdi_internal}
+     (nil))
+(insn 60 59 61 7 (set (reg:DI 5 di)
+        (reg:DI 114)) "tester/file_tester.c":39:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC6") [flags 0x2]  <var_decl 0x7f20b703c120 *.LC6>)
+        (nil)))
+(call_insn 61 60 165 7 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":39:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 165 61 166 7 (set (pc)
+        (label_ref 163)) "tester/file_tester.c":43:5 -1
+     (nil)
+ -> 163)
+;;  succ:       18 [always]  tester/file_tester.c:43:5
+
+(barrier 166 165 64)
+;; basic block 8, loop depth 0, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       6
+;; bb 8 artificial_defs: { }
+;; bb 8 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 64 166 65 8 12 (nil) [1 uses])
+(note 65 64 66 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 66 65 67 8 (set (reg:DI 115)
+        (symbol_ref/f:DI ("*.LC7") [flags 0x2]  <var_decl 0x7f20b703c1b0 *.LC7>)) "tester/file_tester.c":41:7 80 {*movdi_internal}
+     (nil))
+(insn 67 66 68 8 (set (reg:DI 5 di)
+        (reg:DI 115)) "tester/file_tester.c":41:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC7") [flags 0x2]  <var_decl 0x7f20b703c1b0 *.LC7>)
+        (nil)))
+(call_insn 68 67 167 8 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":41:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 167 68 168 8 (set (pc)
+        (label_ref 163)) "tester/file_tester.c":43:5 -1
+     (nil)
+ -> 163)
+;;  succ:       18 [always]  tester/file_tester.c:43:5
+
+(barrier 168 167 73)
+;; basic block 9, loop depth 0, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       5
+;; bb 9 artificial_defs: { }
+;; bb 9 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 73 168 74 9 11 (nil) [1 uses])
+(note 74 73 75 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 75 74 76 9 (set (reg/f:DI 116)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":45:17 80 {*movdi_internal}
+     (nil))
+(insn 76 75 77 9 (set (mem:SI (plus:DI (reg/f:DI 116)
+                (const_int 32 [0x20])) [4 tester_24(D)->error+0 S4 A64])
+        (const_int 1 [0x1])) "tester/file_tester.c":45:17 81 {*movsi_internal}
+     (nil))
+(insn 77 76 78 9 (set (reg/f:DI 117)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":47:13 80 {*movdi_internal}
+     (nil))
+(insn 78 77 79 9 (set (reg/f:DI 86 [ _5 ])
+        (mem/f:DI (plus:DI (reg/f:DI 117)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])) "tester/file_tester.c":47:13 80 {*movdi_internal}
+     (nil))
+(insn 79 78 80 9 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 86 [ _5 ])
+            (const_int 0 [0]))) "tester/file_tester.c":47:6 8 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 80 79 81 9 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 87)
+            (pc))) "tester/file_tester.c":47:6 891 {*jcc}
+     (nil)
+ -> 87)
+;;  succ:       10 (FALLTHRU)
+;;              11
+
+;; basic block 10, loop depth 0, maybe hot
+;;  prev block 9, next block 11, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       9 (FALLTHRU)
+;; bb 10 artificial_defs: { }
+;; bb 10 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 81 80 82 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 82 81 83 10 (set (reg:DI 118)
+        (symbol_ref/f:DI ("*.LC8") [flags 0x2]  <var_decl 0x7f20b703c240 *.LC8>)) "tester/file_tester.c":48:5 80 {*movdi_internal}
+     (nil))
+(insn 83 82 84 10 (set (reg:DI 5 di)
+        (reg:DI 118)) "tester/file_tester.c":48:5 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC8") [flags 0x2]  <var_decl 0x7f20b703c240 *.LC8>)
+        (nil)))
+(call_insn 84 83 169 10 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":48:5 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 169 84 170 10 (set (pc)
+        (label_ref 163)) "tester/file_tester.c":49:5 -1
+     (nil)
+ -> 163)
+;;  succ:       18 [always]  tester/file_tester.c:49:5
+
+(barrier 170 169 87)
+;; basic block 11, loop depth 0, maybe hot
+;;  prev block 10, next block 12, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       9
+;; bb 11 artificial_defs: { }
+;; bb 11 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 87 170 88 11 14 (nil) [1 uses])
+(note 88 87 89 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 89 88 90 11 (set (reg/f:DI 119)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":53:13 80 {*movdi_internal}
+     (nil))
+(insn 90 89 91 11 (set (reg/f:DI 87 [ _6 ])
+        (mem/f:DI (plus:DI (reg/f:DI 119)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])) "tester/file_tester.c":53:13 80 {*movdi_internal}
+     (nil))
+(insn 91 90 92 11 (set (reg:SI 88 [ _7 ])
+        (mem:SI (reg/f:DI 87 [ _6 ]) [4 _6->type+0 S4 A64])) "tester/file_tester.c":53:25 81 {*movsi_internal}
+     (nil))
+(insn 92 91 93 11 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -12 [0xfffffffffffffff4])) [4 type+0 S4 A32])
+            (reg:SI 88 [ _7 ]))) "tester/file_tester.c":53:6 11 {*cmpsi_1}
+     (nil))
+(jump_insn 93 92 94 11 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 107)
+            (pc))) "tester/file_tester.c":53:6 891 {*jcc}
+     (nil)
+ -> 107)
+;;  succ:       12 (FALLTHRU)
+;;              13
+
+;; basic block 12, loop depth 0, maybe hot
+;;  prev block 11, next block 13, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       11 (FALLTHRU)
+;; bb 12 artificial_defs: { }
+;; bb 12 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 94 93 95 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 95 94 96 12 (set (reg/f:DI 120)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":55:18 80 {*movdi_internal}
+     (nil))
+(insn 96 95 97 12 (set (reg/f:DI 89 [ _8 ])
+        (mem/f:DI (plus:DI (reg/f:DI 120)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])) "tester/file_tester.c":55:18 80 {*movdi_internal}
+     (nil))
+(insn 97 96 98 12 (set (reg:SI 90 [ _9 ])
+        (mem:SI (reg/f:DI 89 [ _8 ]) [4 _8->type+0 S4 A64])) "tester/file_tester.c":54:5 81 {*movsi_internal}
+     (nil))
+(insn 98 97 99 12 (set (reg:SI 121)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 type+0 S4 A32])) "tester/file_tester.c":54:5 81 {*movsi_internal}
+     (nil))
+(insn 99 98 100 12 (set (reg:SI 1 dx)
+        (reg:SI 121)) "tester/file_tester.c":54:5 81 {*movsi_internal}
+     (nil))
+(insn 100 99 101 12 (set (reg:SI 4 si)
+        (reg:SI 90 [ _9 ])) "tester/file_tester.c":54:5 81 {*movsi_internal}
+     (nil))
+(insn 101 100 102 12 (set (reg:DI 122)
+        (symbol_ref/f:DI ("*.LC9") [flags 0x2]  <var_decl 0x7f20b703c2d0 *.LC9>)) "tester/file_tester.c":54:5 80 {*movdi_internal}
+     (nil))
+(insn 102 101 103 12 (set (reg:DI 5 di)
+        (reg:DI 122)) "tester/file_tester.c":54:5 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC9") [flags 0x2]  <var_decl 0x7f20b703c2d0 *.LC9>)
+        (nil)))
+(insn 103 102 104 12 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":54:5 83 {*movqi_internal}
+     (nil))
+(call_insn 104 103 171 12 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":54:5 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (nil))))))
+(jump_insn 171 104 172 12 (set (pc)
+        (label_ref 163)) "tester/file_tester.c":56:5 -1
+     (nil)
+ -> 163)
+;;  succ:       18 [always]  tester/file_tester.c:56:5
+
+(barrier 172 171 107)
+;; basic block 13, loop depth 0, maybe hot
+;;  prev block 12, next block 14, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       11
+;; bb 13 artificial_defs: { }
+;; bb 13 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 107 172 108 13 15 (nil) [1 uses])
+(note 108 107 109 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 109 108 110 13 (set (reg/f:DI 123)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":60:13 80 {*movdi_internal}
+     (nil))
+(insn 110 109 111 13 (set (reg/f:DI 91 [ _10 ])
+        (mem/f:DI (plus:DI (reg/f:DI 123)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])) "tester/file_tester.c":60:13 80 {*movdi_internal}
+     (nil))
+(insn 111 110 112 13 (set (reg:SI 92 [ _11 ])
+        (mem:SI (plus:DI (reg/f:DI 91 [ _10 ])
+                (const_int 4 [0x4])) [4 _10->size+0 S4 A32])) "tester/file_tester.c":60:25 81 {*movsi_internal}
+     (nil))
+(insn 112 111 113 13 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 92 [ _11 ])
+            (const_int 0 [0]))) "tester/file_tester.c":60:6 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 113 112 114 13 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 126)
+            (pc))) "tester/file_tester.c":60:6 891 {*jcc}
+     (nil)
+ -> 126)
+;;  succ:       14 (FALLTHRU)
+;;              15
+
+;; basic block 14, loop depth 0, maybe hot
+;;  prev block 13, next block 15, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       13 (FALLTHRU)
+;; bb 14 artificial_defs: { }
+;; bb 14 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 114 113 115 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+(insn 115 114 116 14 (set (reg/f:DI 124)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":62:18 80 {*movdi_internal}
+     (nil))
+(insn 116 115 117 14 (set (reg/f:DI 93 [ _12 ])
+        (mem/f:DI (plus:DI (reg/f:DI 124)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])) "tester/file_tester.c":62:18 80 {*movdi_internal}
+     (nil))
+(insn 117 116 118 14 (set (reg:SI 94 [ _13 ])
+        (mem:SI (plus:DI (reg/f:DI 93 [ _12 ])
+                (const_int 4 [0x4])) [4 _12->size+0 S4 A32])) "tester/file_tester.c":61:5 81 {*movsi_internal}
+     (nil))
+(insn 118 117 119 14 (set (reg:SI 1 dx)
+        (const_int 0 [0])) "tester/file_tester.c":61:5 81 {*movsi_internal}
+     (nil))
+(insn 119 118 120 14 (set (reg:SI 4 si)
+        (reg:SI 94 [ _13 ])) "tester/file_tester.c":61:5 81 {*movsi_internal}
+     (nil))
+(insn 120 119 121 14 (set (reg:DI 125)
+        (symbol_ref/f:DI ("*.LC10") [flags 0x2]  <var_decl 0x7f20b703c360 *.LC10>)) "tester/file_tester.c":61:5 80 {*movdi_internal}
+     (nil))
+(insn 121 120 122 14 (set (reg:DI 5 di)
+        (reg:DI 125)) "tester/file_tester.c":61:5 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC10") [flags 0x2]  <var_decl 0x7f20b703c360 *.LC10>)
+        (nil)))
+(insn 122 121 123 14 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":61:5 83 {*movqi_internal}
+     (nil))
+(call_insn 123 122 173 14 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":61:5 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (nil))))))
+(jump_insn 173 123 174 14 (set (pc)
+        (label_ref 163)) "tester/file_tester.c":63:5 -1
+     (nil)
+ -> 163)
+;;  succ:       18 [always]  tester/file_tester.c:63:5
+
+(barrier 174 173 126)
+;; basic block 15, loop depth 0, maybe hot
+;;  prev block 14, next block 16, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       13
+;; bb 15 artificial_defs: { }
+;; bb 15 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 126 174 127 15 16 (nil) [1 uses])
+(note 127 126 128 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+(insn 128 127 129 15 (set (reg/f:DI 126)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":67:21 80 {*movdi_internal}
+     (nil))
+(insn 129 128 130 15 (set (reg/f:DI 95 [ _14 ])
+        (mem/f:DI (plus:DI (reg/f:DI 126)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])) "tester/file_tester.c":67:21 80 {*movdi_internal}
+     (nil))
+(insn 130 129 131 15 (set (reg/f:DI 96 [ _15 ])
+        (mem/f:DI (plus:DI (reg/f:DI 95 [ _14 ])
+                (const_int 16 [0x10])) [6 _14->base+0 S8 A64])) "tester/file_tester.c":67:33 80 {*movdi_internal}
+     (nil))
+(insn 131 130 132 15 (set (reg/f:DI 97 [ _16 ])
+        (reg/f:DI 96 [ _15 ])) "tester/file_tester.c":67:39 80 {*movdi_internal}
+     (nil))
+(insn 132 131 133 15 (set (reg:DI 127)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [1 name+0 S8 A64])) "tester/file_tester.c":67:7 80 {*movdi_internal}
+     (nil))
+(insn 133 132 134 15 (set (reg:DI 1 dx)
+        (const_int 32 [0x20])) "tester/file_tester.c":67:7 80 {*movdi_internal}
+     (nil))
+(insn 134 133 135 15 (set (reg:DI 4 si)
+        (reg:DI 127)) "tester/file_tester.c":67:7 80 {*movdi_internal}
+     (nil))
+(insn 135 134 136 15 (set (reg:DI 5 di)
+        (reg/f:DI 97 [ _16 ])) "tester/file_tester.c":67:7 80 {*movdi_internal}
+     (nil))
+(call_insn/i 136 135 137 15 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("strncmp") [flags 0x41]  <function_decl 0x7f20b72c0c00 strncmp>) [0 __builtin_strncmp S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":67:7 909 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+(insn 137 136 138 15 (set (reg:SI 98 [ _17 ])
+        (reg:SI 0 ax)) "tester/file_tester.c":67:7 81 {*movsi_internal}
+     (nil))
+(insn 138 137 139 15 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 98 [ _17 ])
+            (const_int 0 [0]))) "tester/file_tester.c":67:6 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 139 138 140 15 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 154)
+            (pc))) "tester/file_tester.c":67:6 891 {*jcc}
+     (nil)
+ -> 154)
+;;  succ:       16 (FALLTHRU)
+;;              17
+
+;; basic block 16, loop depth 0, maybe hot
+;;  prev block 15, next block 17, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       15 (FALLTHRU)
+;; bb 16 artificial_defs: { }
+;; bb 16 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 140 139 141 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+(insn 141 140 142 16 (set (reg/f:DI 128)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":69:18 80 {*movdi_internal}
+     (nil))
+(insn 142 141 143 16 (set (reg/f:DI 99 [ _18 ])
+        (mem/f:DI (plus:DI (reg/f:DI 128)
+                (const_int 24 [0x18])) [2 tester_24(D)->inner_file+0 S8 A64])) "tester/file_tester.c":69:18 80 {*movdi_internal}
+     (nil))
+(insn 143 142 144 16 (set (reg/f:DI 100 [ _19 ])
+        (mem/f:DI (plus:DI (reg/f:DI 99 [ _18 ])
+                (const_int 16 [0x10])) [6 _18->base+0 S8 A64])) "tester/file_tester.c":69:30 80 {*movdi_internal}
+     (nil))
+(insn 144 143 145 16 (set (reg/f:DI 101 [ _20 ])
+        (reg/f:DI 100 [ _19 ])) "tester/file_tester.c":69:36 80 {*movdi_internal}
+     (nil))
+(insn 145 144 146 16 (set (reg:DI 129)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [1 name+0 S8 A64])) "tester/file_tester.c":68:5 80 {*movdi_internal}
+     (nil))
+(insn 146 145 147 16 (set (reg:DI 1 dx)
+        (reg:DI 129)) "tester/file_tester.c":68:5 80 {*movdi_internal}
+     (nil))
+(insn 147 146 148 16 (set (reg:DI 4 si)
+        (reg/f:DI 101 [ _20 ])) "tester/file_tester.c":68:5 80 {*movdi_internal}
+     (nil))
+(insn 148 147 149 16 (set (reg:DI 130)
+        (symbol_ref/f:DI ("*.LC11") [flags 0x2]  <var_decl 0x7f20b703c3f0 *.LC11>)) "tester/file_tester.c":68:5 80 {*movdi_internal}
+     (nil))
+(insn 149 148 150 16 (set (reg:DI 5 di)
+        (reg:DI 130)) "tester/file_tester.c":68:5 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC11") [flags 0x2]  <var_decl 0x7f20b703c3f0 *.LC11>)
+        (nil)))
+(insn 150 149 151 16 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":68:5 83 {*movqi_internal}
+     (nil))
+(call_insn 151 150 175 16 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":68:5 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (expr_list:DI (use (reg:DI 1 dx))
+                    (nil))))))
+(jump_insn 175 151 176 16 (set (pc)
+        (label_ref 163)) "tester/file_tester.c":70:5 -1
+     (nil)
+ -> 163)
+;;  succ:       18 [always]  tester/file_tester.c:70:5
+
+(barrier 176 175 154)
+;; basic block 17, loop depth 0, maybe hot
+;;  prev block 16, next block 19, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       15
+;; bb 17 artificial_defs: { }
+;; bb 17 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 154 176 155 17 17 (nil) [1 uses])
+(note 155 154 156 17 [bb 17] NOTE_INSN_BASIC_BLOCK)
+(insn 156 155 157 17 (set (reg/f:DI 131)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [7 tester+0 S8 A64])) "tester/file_tester.c":72:17 80 {*movdi_internal}
+     (nil))
+(insn 157 156 158 17 (set (mem:SI (plus:DI (reg/f:DI 131)
+                (const_int 32 [0x20])) [4 tester_24(D)->error+0 S4 A64])
+        (const_int 0 [0])) "tester/file_tester.c":72:17 81 {*movsi_internal}
+     (nil))
+(insn 158 157 159 17 (set (reg:DI 132)
+        (symbol_ref/f:DI ("*.LC12") [flags 0x2]  <var_decl 0x7f20b703c480 *.LC12>)) "tester/file_tester.c":73:3 80 {*movdi_internal}
+     (nil))
+(insn 159 158 160 17 (set (reg:DI 5 di)
+        (reg:DI 132)) "tester/file_tester.c":73:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC12") [flags 0x2]  <var_decl 0x7f20b703c480 *.LC12>)
+        (nil)))
+(call_insn 160 159 177 17 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":73:3 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 177 160 178 17 (set (pc)
+        (label_ref 163)) -1
+     (nil)
+ -> 163)
+;;  succ:       18
+
+(barrier 178 177 180)
+;; basic block 19, loop depth 0, maybe hot
+;;  prev block 17, next block 18, flags: (NEW, RTL, MODIFIED)
+;;  pred:       2 tester/file_tester.c:30:5
+;; bb 19 artificial_defs: { }
+;; bb 19 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 180 178 179 19 18 (nil) [1 uses])
+(note 179 180 181 19 [bb 19] NOTE_INSN_BASIC_BLOCK)
+(insn 181 179 163 19 (const_int 0 [0]) "tester/file_tester.c":30:5 -1
+     (nil))
+;;  succ:       18 [always]  (FALLTHRU)
+
+;; basic block 18, loop depth 0, maybe hot
+;;  prev block 19, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       16 [always]  tester/file_tester.c:70:5
+;;              19 [always]  (FALLTHRU)
+;;              14 [always]  tester/file_tester.c:63:5
+;;              7 [always]  tester/file_tester.c:43:5
+;;              8 [always]  tester/file_tester.c:43:5
+;;              10 [always]  tester/file_tester.c:49:5
+;;              12 [always]  tester/file_tester.c:56:5
+;;              17
+;; bb 18 artificial_defs: { }
+;; bb 18 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 163 181 164 18 7 (nil) [7 uses])
+(note 164 163 0 18 [bb 18] NOTE_INSN_BASIC_BLOCK)
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function file_tester_write (file_tester_write, funcdef_no=9, decl_uid=2034, cgraph_uid=10, symbol_order=9)
+
+verify found no changes in insn with uid = 25.
+verify found no changes in insn with uid = 48.
+verify found no changes in insn with uid = 57.
+verify found no changes in insn with uid = 64.
+verify found no changes in insn with uid = 74.
+verify found no changes in insn with uid = 82.
+verify found no changes in insn with uid = 98.
+verify found no changes in insn with uid = 109.
+verify found no changes in insn with uid = 119.
+verify found no changes in insn with uid = 136.
+verify found no changes in insn with uid = 156.
+verify found no changes in insn with uid = 169.
+verify found no changes in insn with uid = 207.
+verify found no changes in insn with uid = 224.
+verify found no changes in insn with uid = 229.
+verify found no changes in insn with uid = 232.
+
+
+file_tester_write
+
+Dataflow summary:
+;;  fully invalidated by EH 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 28 [mm0] 29 [mm1] 30 [mm2] 31 [mm3] 32 [mm4] 33 [mm5] 34 [mm6] 35 [mm7] 36 [r8] 37 [r9] 38 [r10] 39 [r11] 44 [xmm8] 45 [xmm9] 46 [xmm10] 47 [xmm11] 48 [xmm12] 49 [xmm13] 50 [xmm14] 51 [xmm15] 52 [xmm16] 53 [xmm17] 54 [xmm18] 55 [xmm19] 56 [xmm20] 57 [xmm21] 58 [xmm22] 59 [xmm23] 60 [xmm24] 61 [xmm25] 62 [xmm26] 63 [xmm27] 64 [xmm28] 65 [xmm29] 66 [xmm30] 67 [xmm31] 68 [k0] 69 [k1] 70 [k2] 71 [k3] 72 [k4] 73 [k5] 74 [k6] 75 [k7]
+;;  hardware regs used 	
+;;  regular block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 16 [argp] 19 [frame] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 36 [r8] 37 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 19 [frame]
+;;  regs ever live 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 7 [sp] 17 [flags]
+;;  ref usage 	r0={21d,7u} r1={26d,10u} r2={21d,5u} r4={28d,12u} r5={33d,17u} r6={1d,19u} r7={1d,35u} r8={16d} r9={16d} r10={16d} r11={16d} r12={16d} r13={16d} r14={16d} r15={16d} r16={1d,18u} r17={33d,8u} r18={16d} r19={1d,80u,9e} r20={17d} r21={17d} r22={17d} r23={17d} r24={17d} r25={17d} r26={17d} r27={17d} r28={16d} r29={16d} r30={16d} r31={16d} r32={16d} r33={16d} r34={16d} r35={16d} r36={17d} r37={17d} r38={16d} r39={16d} r44={16d} r45={16d} r46={16d} r47={16d} r48={16d} r49={16d} r50={16d} r51={16d} r52={16d} r53={16d} r54={16d} r55={16d} r56={16d} r57={16d} r58={16d} r59={16d} r60={16d} r61={16d} r62={16d} r63={16d} r64={16d} r65={16d} r66={16d} r67={16d} r68={16d} r69={16d} r70={16d} r71={16d} r72={16d} r73={16d} r74={16d} r75={16d} r82={1d,1u} r83={1d,1u} r84={1d,2u} r85={1d,2u} r86={1d,1u} r87={1d,1u} r88={1d,1u} r89={1d,1u} r90={1d,1u} r91={1d,1u} r92={1d,1u} r93={1d,1u} r94={1d,1u} r95={1d,1u} r96={1d,1u} r97={1d,1u} r98={1d,1u} r99={1d,1u,1e} r100={1d,1u} r101={1d,1u} r102={1d,1u} r103={1d,1u} r104={1d,1u} r105={1d,1u} r106={1d,1u} r107={1d,1u} r108={1d,1u} r109={1d,1u} r110={1d,1u} r111={1d,1u,1e} r112={1d,1u} r113={1d,1u} r114={1d,1u,1e} r115={1d,1u} r116={1d,1u} r117={1d,1u,1e} r118={1d,1u} r119={1d,1u} r120={1d,1u} r121={1d,1u,1e} r122={1d,1u} r123={1d,1u} r124={1d,1u} r125={1d,1u} r126={1d,1u} r127={1d,1u} r128={1d,1u} r129={1d,1u} r130={1d,1u} r131={1d,1u} r132={1d,1u} r133={1d,1u} r134={1d,1u} r135={1d,1u} r136={1d,1u} r137={1d,1u} r138={1d,1u} r139={1d,1u} r140={1d,1u} r141={1d,1u} r142={1d,1u} r143={1d,1u} r144={1d,1u} r145={1d,1u} r146={1d,1u} r147={1d,1u} r148={1d,1u} r149={1d,1u} r150={1d,1u} r151={1d,1u} r152={1d,1u} r153={1d,1u} r154={1d,1u} r155={1d,1u} r156={1d,1u} r157={1d,1u} r158={1d,1u} r159={1d,1u} r160={1d,1u} r161={1d,1u} r162={1d,1u} r163={1d,1u} r164={1d,1u} r165={1d,1u} r166={1d,1u} r167={1d,1u} r168={1d,1u} r169={1d,1u} r170={1d,1u} r171={1d,1u} r172={1d,1u} r173={1d,1u} r174={1d,1u} r175={1d,1u} r176={1d,1u} r177={1d,1u} r178={1d,1u} r179={1d,1u} r180={1d,1u} r181={1d,1u} r182={1d,1u} 
+;;    total ref usage 1581{1253d,314u,14e} in 196{180 regular + 16 call} insns.
+(note 1 0 7 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 3, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       ENTRY (FALLTHRU)
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 7 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 7 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])
+        (reg:DI 5 di [ tester ])) "tester/file_tester.c":76:35 80 {*movdi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -44 [0xffffffffffffffd4])) [4 offset+0 S4 A32])
+        (reg:SI 4 si [ offset ])) "tester/file_tester.c":76:35 81 {*movsi_internal}
+     (nil))
+(insn 4 3 5 2 (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -48 [0xffffffffffffffd0])) [4 size+0 S4 A32])
+        (reg:SI 1 dx [ size ])) "tester/file_tester.c":76:35 81 {*movsi_internal}
+     (nil))
+(insn 5 4 6 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -56 [0xffffffffffffffc8])) [1 buf+0 S8 A64])
+        (reg:DI 2 cx [ buf ])) "tester/file_tester.c":76:35 80 {*movdi_internal}
+     (nil))
+(note 6 5 9 2 NOTE_INSN_FUNCTION_BEG)
+(insn 9 6 10 2 (set (reg/f:DI 125)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":78:13 80 {*movdi_internal}
+     (nil))
+(insn 10 9 11 2 (set (reg:SI 82 [ _1 ])
+        (mem:SI (plus:DI (reg/f:DI 125)
+                (const_int 32 [0x20])) [4 tester_49(D)->error+0 S4 A64])) "tester/file_tester.c":78:13 81 {*movsi_internal}
+     (nil))
+(insn 11 10 12 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 82 [ _1 ])
+            (const_int 0 [0]))) "tester/file_tester.c":78:6 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 12 11 17 2 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 252)
+            (pc))) "tester/file_tester.c":78:6 891 {*jcc}
+     (nil)
+ -> 252)
+;;  succ:       19 tester/file_tester.c:79:5
+;;              3 (FALLTHRU)
+
+;; basic block 3, loop depth 0, maybe hot
+;;  prev block 2, next block 4, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       2 (FALLTHRU)
+;; bb 3 artificial_defs: { }
+;; bb 3 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 17 12 18 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 18 17 19 3 (set (reg:SI 126)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -44 [0xffffffffffffffd4])) [4 offset+0 S4 A32])) "tester/file_tester.c":80:3 81 {*movsi_internal}
+     (nil))
+(insn 19 18 20 3 (set (reg:SI 127)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -48 [0xffffffffffffffd0])) [4 size+0 S4 A32])) "tester/file_tester.c":80:3 81 {*movsi_internal}
+     (nil))
+(insn 20 19 21 3 (set (reg:SI 1 dx)
+        (reg:SI 126)) "tester/file_tester.c":80:3 81 {*movsi_internal}
+     (nil))
+(insn 21 20 22 3 (set (reg:SI 4 si)
+        (reg:SI 127)) "tester/file_tester.c":80:3 81 {*movsi_internal}
+     (nil))
+(insn 22 21 23 3 (set (reg:DI 128)
+        (symbol_ref/f:DI ("*.LC13") [flags 0x2]  <var_decl 0x7f20b70472d0 *.LC13>)) "tester/file_tester.c":80:3 80 {*movdi_internal}
+     (nil))
+(insn 23 22 24 3 (set (reg:DI 5 di)
+        (reg:DI 128)) "tester/file_tester.c":80:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC13") [flags 0x2]  <var_decl 0x7f20b70472d0 *.LC13>)
+        (nil)))
+(insn 24 23 25 3 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":80:3 83 {*movqi_internal}
+     (nil))
+(call_insn 25 24 26 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":80:3 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (nil))))))
+(insn 26 25 27 3 (set (reg/f:DI 129)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":81:45 80 {*movdi_internal}
+     (nil))
+(insn 27 26 28 3 (set (reg/f:DI 83 [ _2 ])
+        (mem/f:DI (plus:DI (reg/f:DI 129)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":81:45 80 {*movdi_internal}
+     (nil))
+(insn 28 27 29 3 (set (reg:SI 84 [ _3 ])
+        (mem:SI (plus:DI (reg/f:DI 83 [ _2 ])
+                (const_int 4 [0x4])) [4 _2->size+0 S4 A32])) "tester/file_tester.c":81:57 81 {*movsi_internal}
+     (nil))
+(insn 29 28 30 3 (set (reg:SI 130)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -44 [0xffffffffffffffd4])) [4 offset+0 S4 A32])) "tester/file_tester.c":81:30 81 {*movsi_internal}
+     (nil))
+(insn 30 29 31 3 (set (reg:SI 131)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -48 [0xffffffffffffffd0])) [4 size+0 S4 A32])) "tester/file_tester.c":81:30 81 {*movsi_internal}
+     (nil))
+(insn 31 30 254 3 (parallel [
+            (set (reg:SI 85 [ _4 ])
+                (plus:SI (reg:SI 130)
+                    (reg:SI 131)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":81:30 229 {*addsi_1}
+     (expr_list:REG_EQUAL (plus:SI (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -44 [0xffffffffffffffd4])) [4 offset+0 S4 A32])
+            (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -48 [0xffffffffffffffd0])) [4 size+0 S4 A32]))
+        (nil)))
+(insn 254 31 255 3 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg:SI 84 [ _3 ])
+            (reg:SI 85 [ _4 ]))) "tester/file_tester.c":81:7 -1
+     (nil))
+(insn 255 254 33 3 (set (reg:SI 132)
+        (if_then_else:SI (ge (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (reg:SI 84 [ _3 ])
+            (reg:SI 85 [ _4 ]))) "tester/file_tester.c":81:7 -1
+     (nil))
+(insn 33 255 34 3 (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])
+        (reg:SI 132)) "tester/file_tester.c":81:7 81 {*movsi_internal}
+     (nil))
+(insn 34 33 35 3 (set (reg/f:DI 133)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":86:14 80 {*movdi_internal}
+     (nil))
+(insn 35 34 36 3 (set (reg/f:DI 86 [ _5 ])
+        (mem/f:DI (plus:DI (reg/f:DI 133)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":86:14 80 {*movdi_internal}
+     (nil))
+(insn 36 35 37 3 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 86 [ _5 ])
+            (const_int 0 [0]))) "tester/file_tester.c":86:6 8 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 37 36 38 3 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 67)
+            (pc))) "tester/file_tester.c":86:6 891 {*jcc}
+     (nil)
+ -> 67)
+;;  succ:       4 (FALLTHRU)
+;;              7
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 3, next block 5, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       3 (FALLTHRU)
+;; bb 4 artificial_defs: { }
+;; bb 4 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 38 37 39 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 39 38 40 4 (set (reg/f:DI 134)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":87:9 80 {*movdi_internal}
+     (nil))
+(insn 40 39 41 4 (set (reg/f:DI 87 [ _6 ])
+        (mem/f:DI (plus:DI (reg/f:DI 134)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":87:9 80 {*movdi_internal}
+     (nil))
+(insn 41 40 42 4 (set (reg:DI 135)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -56 [0xffffffffffffffc8])) [1 buf+0 S8 A64])) "tester/file_tester.c":87:9 80 {*movdi_internal}
+     (nil))
+(insn 42 41 43 4 (set (reg:SI 136)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -48 [0xffffffffffffffd0])) [4 size+0 S4 A32])) "tester/file_tester.c":87:9 81 {*movsi_internal}
+     (nil))
+(insn 43 42 44 4 (set (reg:SI 137)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -44 [0xffffffffffffffd4])) [4 offset+0 S4 A32])) "tester/file_tester.c":87:9 81 {*movsi_internal}
+     (nil))
+(insn 44 43 45 4 (set (reg:DI 2 cx)
+        (reg:DI 135)) "tester/file_tester.c":87:9 80 {*movdi_internal}
+     (nil))
+(insn 45 44 46 4 (set (reg:SI 1 dx)
+        (reg:SI 136)) "tester/file_tester.c":87:9 81 {*movsi_internal}
+     (nil))
+(insn 46 45 47 4 (set (reg:SI 4 si)
+        (reg:SI 137)) "tester/file_tester.c":87:9 81 {*movsi_internal}
+     (nil))
+(insn 47 46 48 4 (set (reg:DI 5 di)
+        (reg/f:DI 87 [ _6 ])) "tester/file_tester.c":87:9 80 {*movdi_internal}
+     (nil))
+(call_insn 48 47 49 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("file_write") [flags 0x41]  <function_decl 0x7f20b7341600 file_write>) [0 file_write S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":87:9 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+(insn 49 48 50 4 (set (reg:SI 88 [ _7 ])
+        (reg:SI 0 ax)) "tester/file_tester.c":87:9 81 {*movsi_internal}
+     (nil))
+(insn 50 49 51 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 88 [ _7 ])
+            (const_int 0 [0]))) "tester/file_tester.c":87:8 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 51 50 52 4 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 60)
+            (pc))) "tester/file_tester.c":87:8 891 {*jcc}
+     (nil)
+ -> 60)
+;;  succ:       5 (FALLTHRU)
+;;              6
+
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       4 (FALLTHRU)
+;; bb 5 artificial_defs: { }
+;; bb 5 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 52 51 53 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 53 52 54 5 (set (reg/f:DI 138)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":88:21 80 {*movdi_internal}
+     (nil))
+(insn 54 53 55 5 (set (mem:SI (plus:DI (reg/f:DI 138)
+                (const_int 32 [0x20])) [4 tester_49(D)->error+0 S4 A64])
+        (const_int 1 [0x1])) "tester/file_tester.c":88:21 81 {*movsi_internal}
+     (nil))
+(insn 55 54 56 5 (set (reg:DI 139)
+        (symbol_ref/f:DI ("*.LC6") [flags 0x2]  <var_decl 0x7f20b703c120 *.LC6>)) "tester/file_tester.c":89:7 80 {*movdi_internal}
+     (nil))
+(insn 56 55 57 5 (set (reg:DI 5 di)
+        (reg:DI 139)) "tester/file_tester.c":89:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC6") [flags 0x2]  <var_decl 0x7f20b703c120 *.LC6>)
+        (nil)))
+(call_insn 57 56 237 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":89:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 237 57 238 5 (set (pc)
+        (label_ref 67)) -1
+     (nil)
+ -> 67)
+;;  succ:       7 [always] 
+
+(barrier 238 237 60)
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       4
+;; bb 6 artificial_defs: { }
+;; bb 6 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 60 238 61 6 23 (nil) [1 uses])
+(note 61 60 62 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 62 61 63 6 (set (reg:DI 140)
+        (symbol_ref/f:DI ("*.LC14") [flags 0x2]  <var_decl 0x7f20b7047360 *.LC14>)) "tester/file_tester.c":91:7 80 {*movdi_internal}
+     (nil))
+(insn 63 62 64 6 (set (reg:DI 5 di)
+        (reg:DI 140)) "tester/file_tester.c":91:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC14") [flags 0x2]  <var_decl 0x7f20b7047360 *.LC14>)
+        (nil)))
+(call_insn 64 63 239 6 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":91:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 239 64 240 6 (set (pc)
+        (label_ref 235)) "tester/file_tester.c":92:7 -1
+     (nil)
+ -> 235)
+;;  succ:       18 [always]  tester/file_tester.c:92:7
+
+(barrier 240 239 67)
+;; basic block 7, loop depth 0, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       3
+;;              5 [always] 
+;; bb 7 artificial_defs: { }
+;; bb 7 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 67 240 68 7 22 (nil) [2 uses])
+(note 68 67 69 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 69 68 70 7 (set (reg:SI 141)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])) "tester/file_tester.c":96:46 81 {*movsi_internal}
+     (nil))
+(insn 70 69 71 7 (parallel [
+            (set (reg:SI 89 [ _8 ])
+                (plus:SI (reg:SI 141)
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":96:46 229 {*addsi_1}
+     (expr_list:REG_EQUAL (plus:SI (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])
+            (const_int 1 [0x1]))
+        (nil)))
+(insn 71 70 72 7 (set (reg:DI 90 [ _9 ])
+        (sign_extend:DI (reg:SI 89 [ _8 ]))) "tester/file_tester.c":96:25 154 {*extendsidi2_rex64}
+     (nil))
+(insn 72 71 73 7 (set (reg:DI 4 si)
+        (const_int 1 [0x1])) "tester/file_tester.c":96:25 80 {*movdi_internal}
+     (nil))
+(insn 73 72 74 7 (set (reg:DI 5 di)
+        (reg:DI 90 [ _9 ])) "tester/file_tester.c":96:25 80 {*movdi_internal}
+     (nil))
+(call_insn 74 73 75 7 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("calloc") [flags 0x41]  <function_decl 0x7f20b72d8500 calloc>) [0 __builtin_calloc S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":96:25 909 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 75 74 76 7 (set (reg/f:DI 142)
+        (reg:DI 0 ax)) "tester/file_tester.c":96:25 80 {*movdi_internal}
+     (expr_list:REG_NOALIAS (reg/f:DI 142)
+        (nil)))
+(insn 76 75 77 7 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -16 [0xfffffffffffffff0])) [1 expected_data+0 S8 A64])
+        (reg/f:DI 142)) "tester/file_tester.c":96:25 80 {*movdi_internal}
+     (nil))
+(insn 77 76 78 7 (set (reg:SI 143)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])) "tester/file_tester.c":97:45 81 {*movsi_internal}
+     (nil))
+(insn 78 77 79 7 (parallel [
+            (set (reg:SI 91 [ _10 ])
+                (plus:SI (reg:SI 143)
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":97:45 229 {*addsi_1}
+     (expr_list:REG_EQUAL (plus:SI (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])
+            (const_int 1 [0x1]))
+        (nil)))
+(insn 79 78 80 7 (set (reg:DI 92 [ _11 ])
+        (sign_extend:DI (reg:SI 91 [ _10 ]))) "tester/file_tester.c":97:24 154 {*extendsidi2_rex64}
+     (nil))
+(insn 80 79 81 7 (set (reg:DI 4 si)
+        (const_int 1 [0x1])) "tester/file_tester.c":97:24 80 {*movdi_internal}
+     (nil))
+(insn 81 80 82 7 (set (reg:DI 5 di)
+        (reg:DI 92 [ _11 ])) "tester/file_tester.c":97:24 80 {*movdi_internal}
+     (nil))
+(call_insn 82 81 83 7 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("calloc") [flags 0x41]  <function_decl 0x7f20b72d8500 calloc>) [0 __builtin_calloc S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":97:24 909 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 83 82 84 7 (set (reg/f:DI 144)
+        (reg:DI 0 ax)) "tester/file_tester.c":97:24 80 {*movdi_internal}
+     (expr_list:REG_NOALIAS (reg/f:DI 144)
+        (nil)))
+(insn 84 83 85 7 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])
+        (reg/f:DI 144)) "tester/file_tester.c":97:24 80 {*movdi_internal}
+     (nil))
+(insn 85 84 86 7 (set (reg/f:DI 145)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":98:17 80 {*movdi_internal}
+     (nil))
+(insn 86 85 87 7 (set (mem:SI (plus:DI (reg/f:DI 145)
+                (const_int 32 [0x20])) [4 tester_49(D)->error+0 S4 A64])
+        (const_int 1 [0x1])) "tester/file_tester.c":98:17 81 {*movsi_internal}
+     (nil))
+(insn 87 86 88 7 (set (reg/f:DI 146)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":100:58 80 {*movdi_internal}
+     (nil))
+(insn 88 87 89 7 (set (reg/f:DI 93 [ _12 ])
+        (mem/f:DI (plus:DI (reg/f:DI 146)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":100:58 80 {*movdi_internal}
+     (nil))
+(insn 89 88 90 7 (set (reg:SI 94 [ _13 ])
+        (mem:SI (plus:DI (reg/f:DI 93 [ _12 ])
+                (const_int 4 [0x4])) [4 _12->size+0 S4 A32])) "tester/file_tester.c":100:70 81 {*movsi_internal}
+     (nil))
+(insn 90 89 91 7 (set (reg:DI 95 [ _14 ])
+        (sign_extend:DI (reg:SI 94 [ _13 ]))) "tester/file_tester.c":100:3 154 {*extendsidi2_rex64}
+     (nil))
+(insn 91 90 92 7 (set (reg/f:DI 147)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":100:32 80 {*movdi_internal}
+     (nil))
+(insn 92 91 93 7 (set (reg/f:DI 96 [ _15 ])
+        (mem/f:DI (plus:DI (reg/f:DI 147)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":100:32 80 {*movdi_internal}
+     (nil))
+(insn 93 92 94 7 (set (reg/f:DI 97 [ _16 ])
+        (mem/f:DI (plus:DI (reg/f:DI 96 [ _15 ])
+                (const_int 8 [0x8])) [1 _15->data+0 S8 A64])) "tester/file_tester.c":100:44 80 {*movdi_internal}
+     (nil))
+(insn 94 93 95 7 (set (reg:DI 148)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -16 [0xfffffffffffffff0])) [1 expected_data+0 S8 A64])) "tester/file_tester.c":100:3 80 {*movdi_internal}
+     (nil))
+(insn 95 94 96 7 (set (reg:DI 1 dx)
+        (reg:DI 95 [ _14 ])) "tester/file_tester.c":100:3 80 {*movdi_internal}
+     (nil))
+(insn 96 95 97 7 (set (reg:DI 4 si)
+        (reg/f:DI 97 [ _16 ])) "tester/file_tester.c":100:3 80 {*movdi_internal}
+     (nil))
+(insn 97 96 98 7 (set (reg:DI 5 di)
+        (reg:DI 148)) "tester/file_tester.c":100:3 80 {*movdi_internal}
+     (nil))
+(call_insn 98 97 99 7 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("strncpy") [flags 0x41]  <function_decl 0x7f20b72c0e00 strncpy>) [0 __builtin_strncpy S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":100:3 909 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (set (reg:DI 0 ax)
+            (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (expr_list:DI (use (reg:DI 1 dx))
+                    (nil))))))
+(insn 99 98 100 7 (set (reg:SI 149)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -48 [0xffffffffffffffd0])) [4 size+0 S4 A32])) "tester/file_tester.c":101:3 81 {*movsi_internal}
+     (nil))
+(insn 100 99 101 7 (set (reg:DI 98 [ _17 ])
+        (sign_extend:DI (reg:SI 149))) "tester/file_tester.c":101:3 154 {*extendsidi2_rex64}
+     (nil))
+(insn 101 100 102 7 (set (reg:SI 150)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -44 [0xffffffffffffffd4])) [4 offset+0 S4 A32])) "tester/file_tester.c":101:3 81 {*movsi_internal}
+     (nil))
+(insn 102 101 103 7 (set (reg:DI 99 [ _18 ])
+        (sign_extend:DI (reg:SI 150))) "tester/file_tester.c":101:3 154 {*extendsidi2_rex64}
+     (nil))
+(insn 103 102 104 7 (set (reg/f:DI 151)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -16 [0xfffffffffffffff0])) [1 expected_data+0 S8 A64])) "tester/file_tester.c":101:3 80 {*movdi_internal}
+     (nil))
+(insn 104 103 105 7 (parallel [
+            (set (reg/f:DI 100 [ _19 ])
+                (plus:DI (reg:DI 99 [ _18 ])
+                    (reg/f:DI 151)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":101:3 230 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -16 [0xfffffffffffffff0])) [1 expected_data+0 S8 A64])
+            (reg:DI 99 [ _18 ]))
+        (nil)))
+(insn 105 104 106 7 (set (reg:DI 152)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -56 [0xffffffffffffffc8])) [1 buf+0 S8 A64])) "tester/file_tester.c":101:3 80 {*movdi_internal}
+     (nil))
+(insn 106 105 107 7 (set (reg:DI 1 dx)
+        (reg:DI 98 [ _17 ])) "tester/file_tester.c":101:3 80 {*movdi_internal}
+     (nil))
+(insn 107 106 108 7 (set (reg:DI 4 si)
+        (reg:DI 152)) "tester/file_tester.c":101:3 80 {*movdi_internal}
+     (nil))
+(insn 108 107 109 7 (set (reg:DI 5 di)
+        (reg/f:DI 100 [ _19 ])) "tester/file_tester.c":101:3 80 {*movdi_internal}
+     (nil))
+(call_insn 109 108 110 7 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("strncpy") [flags 0x41]  <function_decl 0x7f20b72c0e00 strncpy>) [0 __builtin_strncpy S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":101:3 909 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (set (reg:DI 0 ax)
+            (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (expr_list:DI (use (reg:DI 1 dx))
+                    (nil))))))
+(insn 110 109 111 7 (set (reg/f:DI 153)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":103:7 80 {*movdi_internal}
+     (nil))
+(insn 111 110 112 7 (set (reg/f:DI 101 [ _20 ])
+        (mem/f:DI (plus:DI (reg/f:DI 153)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":103:7 80 {*movdi_internal}
+     (nil))
+(insn 112 111 113 7 (set (reg:DI 154)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -56 [0xffffffffffffffc8])) [1 buf+0 S8 A64])) "tester/file_tester.c":103:7 80 {*movdi_internal}
+     (nil))
+(insn 113 112 114 7 (set (reg:SI 155)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -48 [0xffffffffffffffd0])) [4 size+0 S4 A32])) "tester/file_tester.c":103:7 81 {*movsi_internal}
+     (nil))
+(insn 114 113 115 7 (set (reg:SI 156)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -44 [0xffffffffffffffd4])) [4 offset+0 S4 A32])) "tester/file_tester.c":103:7 81 {*movsi_internal}
+     (nil))
+(insn 115 114 116 7 (set (reg:DI 2 cx)
+        (reg:DI 154)) "tester/file_tester.c":103:7 80 {*movdi_internal}
+     (nil))
+(insn 116 115 117 7 (set (reg:SI 1 dx)
+        (reg:SI 155)) "tester/file_tester.c":103:7 81 {*movsi_internal}
+     (nil))
+(insn 117 116 118 7 (set (reg:SI 4 si)
+        (reg:SI 156)) "tester/file_tester.c":103:7 81 {*movsi_internal}
+     (nil))
+(insn 118 117 119 7 (set (reg:DI 5 di)
+        (reg/f:DI 101 [ _20 ])) "tester/file_tester.c":103:7 80 {*movdi_internal}
+     (nil))
+(call_insn 119 118 121 7 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("file_write") [flags 0x41]  <function_decl 0x7f20b7341600 file_write>) [0 file_write S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":103:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+(insn 121 119 122 7 (set (reg/f:DI 157)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":107:13 80 {*movdi_internal}
+     (nil))
+(insn 122 121 123 7 (set (reg/f:DI 102 [ _21 ])
+        (mem/f:DI (plus:DI (reg/f:DI 157)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":107:13 80 {*movdi_internal}
+     (nil))
+(insn 123 122 124 7 (set (reg:SI 103 [ _22 ])
+        (mem:SI (plus:DI (reg/f:DI 102 [ _21 ])
+                (const_int 4 [0x4])) [4 _21->size+0 S4 A32])) "tester/file_tester.c":107:25 81 {*movsi_internal}
+     (nil))
+(insn 124 123 125 7 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])
+            (reg:SI 103 [ _22 ]))) "tester/file_tester.c":107:6 11 {*cmpsi_1}
+     (nil))
+(jump_insn 125 124 126 7 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 139)
+            (pc))) "tester/file_tester.c":107:6 891 {*jcc}
+     (nil)
+ -> 139)
+;;  succ:       8 (FALLTHRU)
+;;              9
+
+;; basic block 8, loop depth 0, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       7 (FALLTHRU)
+;; bb 8 artificial_defs: { }
+;; bb 8 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 126 125 127 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 127 126 128 8 (set (reg/f:DI 158)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":109:18 80 {*movdi_internal}
+     (nil))
+(insn 128 127 129 8 (set (reg/f:DI 104 [ _23 ])
+        (mem/f:DI (plus:DI (reg/f:DI 158)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":109:18 80 {*movdi_internal}
+     (nil))
+(insn 129 128 130 8 (set (reg:SI 105 [ _24 ])
+        (mem:SI (plus:DI (reg/f:DI 104 [ _23 ])
+                (const_int 4 [0x4])) [4 _23->size+0 S4 A32])) "tester/file_tester.c":108:5 81 {*movsi_internal}
+     (nil))
+(insn 130 129 131 8 (set (reg:SI 159)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])) "tester/file_tester.c":108:5 81 {*movsi_internal}
+     (nil))
+(insn 131 130 132 8 (set (reg:SI 1 dx)
+        (reg:SI 159)) "tester/file_tester.c":108:5 81 {*movsi_internal}
+     (nil))
+(insn 132 131 133 8 (set (reg:SI 4 si)
+        (reg:SI 105 [ _24 ])) "tester/file_tester.c":108:5 81 {*movsi_internal}
+     (nil))
+(insn 133 132 134 8 (set (reg:DI 160)
+        (symbol_ref/f:DI ("*.LC15") [flags 0x2]  <var_decl 0x7f20b70473f0 *.LC15>)) "tester/file_tester.c":108:5 80 {*movdi_internal}
+     (nil))
+(insn 134 133 135 8 (set (reg:DI 5 di)
+        (reg:DI 160)) "tester/file_tester.c":108:5 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC15") [flags 0x2]  <var_decl 0x7f20b70473f0 *.LC15>)
+        (nil)))
+(insn 135 134 136 8 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":108:5 83 {*movqi_internal}
+     (nil))
+(call_insn 136 135 241 8 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":108:5 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (nil))))))
+(jump_insn 241 136 242 8 (set (pc)
+        (label_ref 225)) "tester/file_tester.c":110:5 -1
+     (nil)
+ -> 225)
+;;  succ:       17 [always]  tester/file_tester.c:110:5
+
+(barrier 242 241 139)
+;; basic block 9, loop depth 0, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       7
+;; bb 9 artificial_defs: { }
+;; bb 9 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 139 242 140 9 24 (nil) [1 uses])
+(note 140 139 141 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 141 140 142 9 (set (reg/f:DI 161)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":114:13 80 {*movdi_internal}
+     (nil))
+(insn 142 141 143 9 (set (reg/f:DI 106 [ _25 ])
+        (mem/f:DI (plus:DI (reg/f:DI 161)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":114:13 80 {*movdi_internal}
+     (nil))
+(insn 143 142 144 9 (set (reg:SI 107 [ _26 ])
+        (mem:SI (plus:DI (reg/f:DI 106 [ _25 ])
+                (const_int 4 [0x4])) [4 _25->size+0 S4 A32])) "tester/file_tester.c":114:25 81 {*movsi_internal}
+     (nil))
+(insn 144 143 145 9 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])
+            (reg:SI 107 [ _26 ]))) "tester/file_tester.c":114:6 11 {*cmpsi_1}
+     (nil))
+(jump_insn 145 144 146 9 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 159)
+            (pc))) "tester/file_tester.c":114:6 891 {*jcc}
+     (nil)
+ -> 159)
+;;  succ:       10 (FALLTHRU)
+;;              11
+
+;; basic block 10, loop depth 0, maybe hot
+;;  prev block 9, next block 11, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       9 (FALLTHRU)
+;; bb 10 artificial_defs: { }
+;; bb 10 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 146 145 147 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 147 146 148 10 (set (reg/f:DI 162)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":116:18 80 {*movdi_internal}
+     (nil))
+(insn 148 147 149 10 (set (reg/f:DI 108 [ _27 ])
+        (mem/f:DI (plus:DI (reg/f:DI 162)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":116:18 80 {*movdi_internal}
+     (nil))
+(insn 149 148 150 10 (set (reg:SI 109 [ _28 ])
+        (mem:SI (plus:DI (reg/f:DI 108 [ _27 ])
+                (const_int 4 [0x4])) [4 _27->size+0 S4 A32])) "tester/file_tester.c":115:5 81 {*movsi_internal}
+     (nil))
+(insn 150 149 151 10 (set (reg:SI 163)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])) "tester/file_tester.c":115:5 81 {*movsi_internal}
+     (nil))
+(insn 151 150 152 10 (set (reg:SI 1 dx)
+        (reg:SI 163)) "tester/file_tester.c":115:5 81 {*movsi_internal}
+     (nil))
+(insn 152 151 153 10 (set (reg:SI 4 si)
+        (reg:SI 109 [ _28 ])) "tester/file_tester.c":115:5 81 {*movsi_internal}
+     (nil))
+(insn 153 152 154 10 (set (reg:DI 164)
+        (symbol_ref/f:DI ("*.LC15") [flags 0x2]  <var_decl 0x7f20b70473f0 *.LC15>)) "tester/file_tester.c":115:5 80 {*movdi_internal}
+     (nil))
+(insn 154 153 155 10 (set (reg:DI 5 di)
+        (reg:DI 164)) "tester/file_tester.c":115:5 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC15") [flags 0x2]  <var_decl 0x7f20b70473f0 *.LC15>)
+        (nil)))
+(insn 155 154 156 10 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":115:5 83 {*movqi_internal}
+     (nil))
+(call_insn 156 155 243 10 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":115:5 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (nil))))))
+(jump_insn 243 156 244 10 (set (pc)
+        (label_ref 225)) "tester/file_tester.c":117:5 -1
+     (nil)
+ -> 225)
+;;  succ:       17 [always]  tester/file_tester.c:117:5
+
+(barrier 244 243 159)
+;; basic block 11, loop depth 0, maybe hot
+;;  prev block 10, next block 12, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       9
+;; bb 11 artificial_defs: { }
+;; bb 11 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 159 244 160 11 26 (nil) [1 uses])
+(note 160 159 161 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 161 160 162 11 (set (reg/f:DI 165)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":119:23 80 {*movdi_internal}
+     (nil))
+(insn 162 161 163 11 (set (reg/f:DI 110 [ _29 ])
+        (mem/f:DI (plus:DI (reg/f:DI 165)
+                (const_int 24 [0x18])) [2 tester_49(D)->inner_file+0 S8 A64])) "tester/file_tester.c":119:23 80 {*movdi_internal}
+     (nil))
+(insn 163 162 164 11 (set (reg:DI 166)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])) "tester/file_tester.c":119:7 80 {*movdi_internal}
+     (nil))
+(insn 164 163 165 11 (set (reg:SI 167)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32])) "tester/file_tester.c":119:7 81 {*movsi_internal}
+     (nil))
+(insn 165 164 166 11 (set (reg:DI 2 cx)
+        (reg:DI 166)) "tester/file_tester.c":119:7 80 {*movdi_internal}
+     (nil))
+(insn 166 165 167 11 (set (reg:SI 1 dx)
+        (reg:SI 167)) "tester/file_tester.c":119:7 81 {*movsi_internal}
+     (nil))
+(insn 167 166 168 11 (set (reg:SI 4 si)
+        (const_int 0 [0])) "tester/file_tester.c":119:7 81 {*movsi_internal}
+     (nil))
+(insn 168 167 169 11 (set (reg:DI 5 di)
+        (reg/f:DI 110 [ _29 ])) "tester/file_tester.c":119:7 80 {*movdi_internal}
+     (nil))
+(call_insn 169 168 171 11 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("file_read") [flags 0x41]  <function_decl 0x7f20b7341700 file_read>) [0 file_read S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":119:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+(insn 171 169 245 11 (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [4 i+0 S4 A64])
+        (const_int 0 [0])) "tester/file_tester.c":125:10 81 {*movsi_internal}
+     (nil))
+(jump_insn 245 171 246 11 (set (pc)
+        (label_ref 213)) "tester/file_tester.c":125:3 -1
+     (nil)
+ -> 213)
+;;  succ:       15 [always]  tester/file_tester.c:125:3
+
+(barrier 246 245 215)
+;; basic block 12, loop depth 0, maybe hot
+;;  prev block 11, next block 13, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       15
+;; bb 12 artificial_defs: { }
+;; bb 12 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 215 246 174 12 29 (nil) [1 uses])
+(note 174 215 175 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 175 174 176 12 (set (reg:SI 168)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [4 i+0 S4 A64])) "tester/file_tester.c":126:21 81 {*movsi_internal}
+     (nil))
+(insn 176 175 177 12 (set (reg:DI 111 [ _30 ])
+        (sign_extend:DI (reg:SI 168))) "tester/file_tester.c":126:21 154 {*extendsidi2_rex64}
+     (nil))
+(insn 177 176 178 12 (set (reg/f:DI 169)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])) "tester/file_tester.c":126:21 80 {*movdi_internal}
+     (nil))
+(insn 178 177 179 12 (parallel [
+            (set (reg/f:DI 112 [ _31 ])
+                (plus:DI (reg:DI 111 [ _30 ])
+                    (reg/f:DI 169)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":126:21 230 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])
+            (reg:DI 111 [ _30 ]))
+        (nil)))
+(insn 179 178 180 12 (set (reg:QI 113 [ _32 ])
+        (mem:QI (reg/f:DI 112 [ _31 ]) [0 *_31+0 S1 A8])) "tester/file_tester.c":126:21 83 {*movqi_internal}
+     (nil))
+(insn 180 179 181 12 (set (reg:SI 170)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [4 i+0 S4 A64])) "tester/file_tester.c":126:41 81 {*movsi_internal}
+     (nil))
+(insn 181 180 182 12 (set (reg:DI 114 [ _33 ])
+        (sign_extend:DI (reg:SI 170))) "tester/file_tester.c":126:41 154 {*extendsidi2_rex64}
+     (nil))
+(insn 182 181 183 12 (set (reg/f:DI 171)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -16 [0xfffffffffffffff0])) [1 expected_data+0 S8 A64])) "tester/file_tester.c":126:41 80 {*movdi_internal}
+     (nil))
+(insn 183 182 184 12 (parallel [
+            (set (reg/f:DI 115 [ _34 ])
+                (plus:DI (reg:DI 114 [ _33 ])
+                    (reg/f:DI 171)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":126:41 230 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -16 [0xfffffffffffffff0])) [1 expected_data+0 S8 A64])
+            (reg:DI 114 [ _33 ]))
+        (nil)))
+(insn 184 183 185 12 (set (reg:QI 116 [ _35 ])
+        (mem:QI (reg/f:DI 115 [ _34 ]) [0 *_34+0 S1 A8])) "tester/file_tester.c":126:41 83 {*movqi_internal}
+     (nil))
+(insn 185 184 186 12 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:QI 113 [ _32 ])
+            (reg:QI 116 [ _35 ]))) "tester/file_tester.c":126:8 9 {*cmpqi_1}
+     (nil))
+(jump_insn 186 185 187 12 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 210)
+            (pc))) "tester/file_tester.c":126:8 891 {*jcc}
+     (nil)
+ -> 210)
+;;  succ:       13 (FALLTHRU)
+;;              14
+
+;; basic block 13, loop depth 0, maybe hot
+;;  prev block 12, next block 14, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       12 (FALLTHRU)
+;; bb 13 artificial_defs: { }
+;; bb 13 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 187 186 188 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 188 187 189 13 (set (reg:SI 172)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [4 i+0 S4 A64])) "tester/file_tester.c":128:44 81 {*movsi_internal}
+     (nil))
+(insn 189 188 190 13 (set (reg:DI 117 [ _36 ])
+        (sign_extend:DI (reg:SI 172))) "tester/file_tester.c":128:44 154 {*extendsidi2_rex64}
+     (nil))
+(insn 190 189 191 13 (set (reg/f:DI 173)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -16 [0xfffffffffffffff0])) [1 expected_data+0 S8 A64])) "tester/file_tester.c":128:44 80 {*movdi_internal}
+     (nil))
+(insn 191 190 192 13 (parallel [
+            (set (reg/f:DI 118 [ _37 ])
+                (plus:DI (reg:DI 117 [ _36 ])
+                    (reg/f:DI 173)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":128:44 230 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -16 [0xfffffffffffffff0])) [1 expected_data+0 S8 A64])
+            (reg:DI 117 [ _36 ]))
+        (nil)))
+(insn 192 191 193 13 (set (reg:QI 119 [ _38 ])
+        (mem:QI (reg/f:DI 118 [ _37 ]) [0 *_37+0 S1 A8])) "tester/file_tester.c":128:44 83 {*movqi_internal}
+     (nil))
+(insn 193 192 194 13 (set (reg:SI 120 [ _39 ])
+        (sign_extend:SI (reg:QI 119 [ _38 ]))) "tester/file_tester.c":127:7 160 {extendqisi2}
+     (nil))
+(insn 194 193 195 13 (set (reg:SI 174)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [4 i+0 S4 A64])) "tester/file_tester.c":128:26 81 {*movsi_internal}
+     (nil))
+(insn 195 194 196 13 (set (reg:DI 121 [ _40 ])
+        (sign_extend:DI (reg:SI 174))) "tester/file_tester.c":128:26 154 {*extendsidi2_rex64}
+     (nil))
+(insn 196 195 197 13 (set (reg/f:DI 175)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])) "tester/file_tester.c":128:26 80 {*movdi_internal}
+     (nil))
+(insn 197 196 198 13 (parallel [
+            (set (reg/f:DI 122 [ _41 ])
+                (plus:DI (reg:DI 121 [ _40 ])
+                    (reg/f:DI 175)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":128:26 230 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])
+            (reg:DI 121 [ _40 ]))
+        (nil)))
+(insn 198 197 199 13 (set (reg:QI 123 [ _42 ])
+        (mem:QI (reg/f:DI 122 [ _41 ]) [0 *_41+0 S1 A8])) "tester/file_tester.c":128:26 83 {*movqi_internal}
+     (nil))
+(insn 199 198 200 13 (set (reg:SI 124 [ _43 ])
+        (sign_extend:SI (reg:QI 123 [ _42 ]))) "tester/file_tester.c":127:7 160 {extendqisi2}
+     (nil))
+(insn 200 199 201 13 (set (reg:SI 176)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [4 i+0 S4 A64])) "tester/file_tester.c":127:7 81 {*movsi_internal}
+     (nil))
+(insn 201 200 202 13 (set (reg:SI 2 cx)
+        (reg:SI 120 [ _39 ])) "tester/file_tester.c":127:7 81 {*movsi_internal}
+     (nil))
+(insn 202 201 203 13 (set (reg:SI 1 dx)
+        (reg:SI 124 [ _43 ])) "tester/file_tester.c":127:7 81 {*movsi_internal}
+     (nil))
+(insn 203 202 204 13 (set (reg:SI 4 si)
+        (reg:SI 176)) "tester/file_tester.c":127:7 81 {*movsi_internal}
+     (nil))
+(insn 204 203 205 13 (set (reg:DI 177)
+        (symbol_ref/f:DI ("*.LC16") [flags 0x2]  <var_decl 0x7f20b7047480 *.LC16>)) "tester/file_tester.c":127:7 80 {*movdi_internal}
+     (nil))
+(insn 205 204 206 13 (set (reg:DI 5 di)
+        (reg:DI 177)) "tester/file_tester.c":127:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC16") [flags 0x2]  <var_decl 0x7f20b7047480 *.LC16>)
+        (nil)))
+(insn 206 205 207 13 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":127:7 83 {*movqi_internal}
+     (nil))
+(call_insn 207 206 247 13 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":127:7 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (expr_list:SI (use (reg:SI 2 cx))
+                        (nil)))))))
+(jump_insn 247 207 248 13 (set (pc)
+        (label_ref 225)) "tester/file_tester.c":129:7 -1
+     (nil)
+ -> 225)
+;;  succ:       17 [always]  tester/file_tester.c:129:7
+
+(barrier 248 247 210)
+;; basic block 14, loop depth 0, maybe hot
+;;  prev block 13, next block 15, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       12
+;; bb 14 artificial_defs: { }
+;; bb 14 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 210 248 211 14 28 (nil) [1 uses])
+(note 211 210 212 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+(insn 212 211 213 14 (parallel [
+            (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                        (const_int -24 [0xffffffffffffffe8])) [4 i+0 S4 A64])
+                (plus:SI (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                            (const_int -24 [0xffffffffffffffe8])) [4 i+0 S4 A64])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":125:35 229 {*addsi_1}
+     (nil))
+;;  succ:       15 (FALLTHRU,DFS_BACK)
+
+;; basic block 15, loop depth 0, maybe hot
+;;  prev block 14, next block 16, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       14 (FALLTHRU,DFS_BACK)
+;;              11 [always]  tester/file_tester.c:125:3
+;; bb 15 artificial_defs: { }
+;; bb 15 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 213 212 214 15 27 (nil) [1 uses])
+(note 214 213 216 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+(insn 216 214 217 15 (set (reg:SI 178)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [4 i+0 S4 A64])) "tester/file_tester.c":125:17 81 {*movsi_internal}
+     (nil))
+(insn 217 216 218 15 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg:SI 178)
+            (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -20 [0xffffffffffffffec])) [4 expected_size+0 S4 A32]))) "tester/file_tester.c":125:17 11 {*cmpsi_1}
+     (nil))
+(jump_insn 218 217 219 15 (set (pc)
+        (if_then_else (lt (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 215)
+            (pc))) "tester/file_tester.c":125:17 891 {*jcc}
+     (nil)
+ -> 215)
+;;  succ:       12
+;;              16 (FALLTHRU)
+
+;; basic block 16, loop depth 0, maybe hot
+;;  prev block 15, next block 17, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       15 (FALLTHRU)
+;; bb 16 artificial_defs: { }
+;; bb 16 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 219 218 220 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+(insn 220 219 221 16 (set (reg/f:DI 179)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [7 tester+0 S8 A64])) "tester/file_tester.c":132:17 80 {*movdi_internal}
+     (nil))
+(insn 221 220 222 16 (set (mem:SI (plus:DI (reg/f:DI 179)
+                (const_int 32 [0x20])) [4 tester_49(D)->error+0 S4 A64])
+        (const_int 0 [0])) "tester/file_tester.c":132:17 81 {*movsi_internal}
+     (nil))
+(insn 222 221 223 16 (set (reg:DI 180)
+        (symbol_ref/f:DI ("*.LC12") [flags 0x2]  <var_decl 0x7f20b703c480 *.LC12>)) "tester/file_tester.c":133:3 80 {*movdi_internal}
+     (nil))
+(insn 223 222 224 16 (set (reg:DI 5 di)
+        (reg:DI 180)) "tester/file_tester.c":133:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC12") [flags 0x2]  <var_decl 0x7f20b703c480 *.LC12>)
+        (nil)))
+(call_insn 224 223 225 16 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":133:3 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       17 (FALLTHRU)
+
+;; basic block 17, loop depth 0, maybe hot
+;;  prev block 16, next block 19, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       16 (FALLTHRU)
+;;              10 [always]  tester/file_tester.c:117:5
+;;              8 [always]  tester/file_tester.c:110:5
+;;              13 [always]  tester/file_tester.c:129:7
+;; bb 17 artificial_defs: { }
+;; bb 17 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 225 224 226 17 25 ("test_write_clear") [3 uses])
+(note 226 225 227 17 [bb 17] NOTE_INSN_BASIC_BLOCK)
+(insn 227 226 228 17 (set (reg:DI 181)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])) "tester/file_tester.c":135:3 80 {*movdi_internal}
+     (nil))
+(insn 228 227 229 17 (set (reg:DI 5 di)
+        (reg:DI 181)) "tester/file_tester.c":135:3 80 {*movdi_internal}
+     (nil))
+(call_insn 229 228 230 17 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7f20b72ddc00 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "tester/file_tester.c":135:3 898 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 230 229 231 17 (set (reg:DI 182)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -16 [0xfffffffffffffff0])) [1 expected_data+0 S8 A64])) "tester/file_tester.c":136:3 80 {*movdi_internal}
+     (nil))
+(insn 231 230 232 17 (set (reg:DI 5 di)
+        (reg:DI 182)) "tester/file_tester.c":136:3 80 {*movdi_internal}
+     (nil))
+(call_insn 232 231 249 17 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7f20b72ddc00 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "tester/file_tester.c":136:3 898 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 249 232 250 17 (set (pc)
+        (label_ref 235)) -1
+     (nil)
+ -> 235)
+;;  succ:       18
+
+(barrier 250 249 252)
+;; basic block 19, loop depth 0, maybe hot
+;;  prev block 17, next block 18, flags: (NEW, RTL, MODIFIED)
+;;  pred:       2 tester/file_tester.c:79:5
+;; bb 19 artificial_defs: { }
+;; bb 19 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 252 250 251 19 30 (nil) [1 uses])
+(note 251 252 253 19 [bb 19] NOTE_INSN_BASIC_BLOCK)
+(insn 253 251 235 19 (const_int 0 [0]) "tester/file_tester.c":79:5 -1
+     (nil))
+;;  succ:       18 [always]  (FALLTHRU)
+
+;; basic block 18, loop depth 0, maybe hot
+;;  prev block 19, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       6 [always]  tester/file_tester.c:92:7
+;;              19 [always]  (FALLTHRU)
+;;              17
+;; bb 18 artificial_defs: { }
+;; bb 18 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 235 253 236 18 19 (nil) [2 uses])
+(note 236 235 0 18 [bb 18] NOTE_INSN_BASIC_BLOCK)
+;;  succ:       EXIT [always]  (FALLTHRU)
+
+
+;; Function file_tester_read (file_tester_read, funcdef_no=10, decl_uid=2039, cgraph_uid=11, symbol_order=10)
+
+verify found no changes in insn with uid = 26.
+verify found no changes in insn with uid = 40.
+verify found no changes in insn with uid = 49.
+verify found no changes in insn with uid = 56.
+verify found no changes in insn with uid = 68.
+verify found no changes in insn with uid = 89.
+verify found no changes in insn with uid = 98.
+verify found no changes in insn with uid = 105.
+verify found no changes in insn with uid = 123.
+verify found no changes in insn with uid = 130.
+verify found no changes in insn with uid = 173.
+verify found no changes in insn with uid = 190.
+verify found no changes in insn with uid = 195.
+
+
+file_tester_read
+
+Dataflow summary:
+;;  fully invalidated by EH 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 8 [st] 9 [st(1)] 10 [st(2)] 11 [st(3)] 12 [st(4)] 13 [st(5)] 14 [st(6)] 15 [st(7)] 17 [flags] 18 [fpsr] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 28 [mm0] 29 [mm1] 30 [mm2] 31 [mm3] 32 [mm4] 33 [mm5] 34 [mm6] 35 [mm7] 36 [r8] 37 [r9] 38 [r10] 39 [r11] 44 [xmm8] 45 [xmm9] 46 [xmm10] 47 [xmm11] 48 [xmm12] 49 [xmm13] 50 [xmm14] 51 [xmm15] 52 [xmm16] 53 [xmm17] 54 [xmm18] 55 [xmm19] 56 [xmm20] 57 [xmm21] 58 [xmm22] 59 [xmm23] 60 [xmm24] 61 [xmm25] 62 [xmm26] 63 [xmm27] 64 [xmm28] 65 [xmm29] 66 [xmm30] 67 [xmm31] 68 [k0] 69 [k1] 70 [k2] 71 [k3] 72 [k4] 73 [k5] 74 [k6] 75 [k7]
+;;  hardware regs used 	
+;;  regular block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  eh block artificial uses 	 6 [bp] 7 [sp] 16 [argp] 19 [frame]
+;;  entry block defs 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 6 [bp] 7 [sp] 16 [argp] 19 [frame] 20 [xmm0] 21 [xmm1] 22 [xmm2] 23 [xmm3] 24 [xmm4] 25 [xmm5] 26 [xmm6] 27 [xmm7] 36 [r8] 37 [r9]
+;;  exit block uses 	 6 [bp] 7 [sp] 19 [frame]
+;;  regs ever live 	 0 [ax] 1 [dx] 2 [cx] 4 [si] 5 [di] 7 [sp] 17 [flags]
+;;  ref usage 	r0={16d,6u} r1={19d,6u} r2={18d,5u} r4={20d,7u} r5={27d,14u} r6={1d,21u} r7={1d,34u} r8={13d} r9={13d} r10={13d} r11={13d} r12={13d} r13={13d} r14={13d} r15={13d} r16={1d,20u} r17={29d,8u} r18={13d} r19={1d,66u,9e} r20={14d} r21={14d} r22={14d} r23={14d} r24={14d} r25={14d} r26={14d} r27={14d} r28={13d} r29={13d} r30={13d} r31={13d} r32={13d} r33={13d} r34={13d} r35={13d} r36={14d} r37={14d} r38={13d} r39={13d} r44={13d} r45={13d} r46={13d} r47={13d} r48={13d} r49={13d} r50={13d} r51={13d} r52={13d} r53={13d} r54={13d} r55={13d} r56={13d} r57={13d} r58={13d} r59={13d} r60={13d} r61={13d} r62={13d} r63={13d} r64={13d} r65={13d} r66={13d} r67={13d} r68={13d} r69={13d} r70={13d} r71={13d} r72={13d} r73={13d} r74={13d} r75={13d} r82={1d,1u} r83={1d,1u} r84={1d,1u} r85={1d,1u} r86={1d,1u} r87={1d,1u} r88={1d,1u} r89={1d,1u} r90={1d,1u} r91={1d,1u} r92={1d,1u} r93={1d,1u} r94={1d,1u} r95={1d,1u,1e} r96={1d,1u} r97={1d,1u} r98={1d,1u,1e} r99={1d,1u} r100={1d,1u} r101={1d,1u,1e} r102={1d,1u} r103={1d,1u} r104={1d,1u} r105={1d,1u,1e} r106={1d,1u} r107={1d,1u} r108={1d,1u} r109={1d,1u} r110={1d,1u} r111={1d,1u} r112={1d,1u} r113={1d,1u} r114={1d,1u} r115={1d,1u} r116={1d,1u} r117={1d,1u} r118={1d,1u} r119={1d,1u} r120={1d,1u} r121={1d,1u} r122={1d,1u} r123={1d,1u} r124={1d,1u} r125={1d,1u} r126={1d,1u} r127={1d,1u} r128={1d,1u} r129={1d,1u} r130={1d,1u} r131={1d,1u} r132={1d,1u} r133={1d,1u} r134={1d,1u} r135={1d,1u} r136={1d,1u} r137={1d,1u} r138={1d,1u} r139={1d,1u} r140={1d,1u} r141={1d,1u} r142={1d,1u} r143={1d,1u} r144={1d,1u} r145={1d,1u} r146={1d,1u} r147={1d,1u} r148={1d,1u} r149={1d,1u} r150={1d,1u} r151={1d,1u} r152={1d,1u} r153={1d,1u} 
+;;    total ref usage 1280{1008d,259u,13e} in 152{139 regular + 13 call} insns.
+(note 1 0 7 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, maybe hot
+;;  prev block 0, next block 3, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       ENTRY (FALLTHRU)
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 7 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 7 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])
+        (reg:DI 5 di [ tester ])) "tester/file_tester.c":139:39 80 {*movdi_internal}
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -28 [0xffffffffffffffe4])) [4 offset+0 S4 A32])
+        (reg:SI 4 si [ offset ])) "tester/file_tester.c":139:39 81 {*movsi_internal}
+     (nil))
+(insn 4 3 5 2 (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32])
+        (reg:SI 1 dx [ size ])) "tester/file_tester.c":139:39 81 {*movsi_internal}
+     (nil))
+(insn 5 4 6 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [1 expected+0 S8 A64])
+        (reg:DI 2 cx [ expected ])) "tester/file_tester.c":139:39 80 {*movdi_internal}
+     (nil))
+(note 6 5 9 2 NOTE_INSN_FUNCTION_BEG)
+(insn 9 6 10 2 (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])
+        (const_int 0 [0])) "tester/file_tester.c":140:7 81 {*movsi_internal}
+     (nil))
+(insn 10 9 11 2 (set (reg/f:DI 110)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":141:13 80 {*movdi_internal}
+     (nil))
+(insn 11 10 12 2 (set (reg:SI 82 [ _1 ])
+        (mem:SI (plus:DI (reg/f:DI 110)
+                (const_int 32 [0x20])) [4 tester_36(D)->error+0 S4 A64])) "tester/file_tester.c":141:13 81 {*movsi_internal}
+     (nil))
+(insn 12 11 13 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 82 [ _1 ])
+            (const_int 0 [0]))) "tester/file_tester.c":141:6 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 13 12 18 2 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 217)
+            (pc))) "tester/file_tester.c":141:6 891 {*jcc}
+     (nil)
+ -> 217)
+;;  succ:       21 tester/file_tester.c:142:5
+;;              3 (FALLTHRU)
+
+;; basic block 3, loop depth 0, maybe hot
+;;  prev block 2, next block 4, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       2 (FALLTHRU)
+;; bb 3 artificial_defs: { }
+;; bb 3 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 18 13 19 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+(insn 19 18 20 3 (set (reg:SI 111)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -28 [0xffffffffffffffe4])) [4 offset+0 S4 A32])) "tester/file_tester.c":143:3 81 {*movsi_internal}
+     (nil))
+(insn 20 19 21 3 (set (reg:SI 112)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32])) "tester/file_tester.c":143:3 81 {*movsi_internal}
+     (nil))
+(insn 21 20 22 3 (set (reg:SI 1 dx)
+        (reg:SI 111)) "tester/file_tester.c":143:3 81 {*movsi_internal}
+     (nil))
+(insn 22 21 23 3 (set (reg:SI 4 si)
+        (reg:SI 112)) "tester/file_tester.c":143:3 81 {*movsi_internal}
+     (nil))
+(insn 23 22 24 3 (set (reg:DI 113)
+        (symbol_ref/f:DI ("*.LC17") [flags 0x2]  <var_decl 0x7f20b70563f0 *.LC17>)) "tester/file_tester.c":143:3 80 {*movdi_internal}
+     (nil))
+(insn 24 23 25 3 (set (reg:DI 5 di)
+        (reg:DI 113)) "tester/file_tester.c":143:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC17") [flags 0x2]  <var_decl 0x7f20b70563f0 *.LC17>)
+        (nil)))
+(insn 25 24 26 3 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":143:3 83 {*movqi_internal}
+     (nil))
+(call_insn 26 25 27 3 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":143:3 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (nil))))))
+(insn 27 26 28 3 (set (reg/f:DI 114)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":145:14 80 {*movdi_internal}
+     (nil))
+(insn 28 27 29 3 (set (reg/f:DI 83 [ _2 ])
+        (mem/f:DI (plus:DI (reg/f:DI 114)
+                (const_int 24 [0x18])) [2 tester_36(D)->inner_file+0 S8 A64])) "tester/file_tester.c":145:14 80 {*movdi_internal}
+     (nil))
+(insn 29 28 30 3 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 83 [ _2 ])
+            (const_int 0 [0]))) "tester/file_tester.c":145:6 8 {*cmpdi_ccno_1}
+     (nil))
+(jump_insn 30 29 31 3 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 61)
+            (pc))) "tester/file_tester.c":145:6 891 {*jcc}
+     (nil)
+ -> 61)
+;;  succ:       4 (FALLTHRU)
+;;              7
+
+;; basic block 4, loop depth 0, maybe hot
+;;  prev block 3, next block 5, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       3 (FALLTHRU)
+;; bb 4 artificial_defs: { }
+;; bb 4 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 31 30 32 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 32 31 33 4 (set (reg/f:DI 115)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":146:25 80 {*movdi_internal}
+     (nil))
+(insn 33 32 34 4 (set (reg/f:DI 84 [ _3 ])
+        (mem/f:DI (plus:DI (reg/f:DI 115)
+                (const_int 24 [0x18])) [2 tester_36(D)->inner_file+0 S8 A64])) "tester/file_tester.c":146:25 80 {*movdi_internal}
+     (nil))
+(insn 34 33 35 4 (set (reg:SI 116)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32])) "tester/file_tester.c":146:9 81 {*movsi_internal}
+     (nil))
+(insn 35 34 36 4 (set (reg:SI 117)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -28 [0xffffffffffffffe4])) [4 offset+0 S4 A32])) "tester/file_tester.c":146:9 81 {*movsi_internal}
+     (nil))
+(insn 36 35 37 4 (set (reg:DI 2 cx)
+        (const_int 0 [0])) "tester/file_tester.c":146:9 80 {*movdi_internal}
+     (nil))
+(insn 37 36 38 4 (set (reg:SI 1 dx)
+        (reg:SI 116)) "tester/file_tester.c":146:9 81 {*movsi_internal}
+     (nil))
+(insn 38 37 39 4 (set (reg:SI 4 si)
+        (reg:SI 117)) "tester/file_tester.c":146:9 81 {*movsi_internal}
+     (nil))
+(insn 39 38 40 4 (set (reg:DI 5 di)
+        (reg/f:DI 84 [ _3 ])) "tester/file_tester.c":146:9 80 {*movdi_internal}
+     (nil))
+(call_insn 40 39 41 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("file_read") [flags 0x41]  <function_decl 0x7f20b7341700 file_read>) [0 file_read S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":146:9 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+(insn 41 40 42 4 (set (reg:SI 85 [ _4 ])
+        (reg:SI 0 ax)) "tester/file_tester.c":146:9 81 {*movsi_internal}
+     (nil))
+(insn 42 41 43 4 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 85 [ _4 ])
+            (const_int 0 [0]))) "tester/file_tester.c":146:8 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 43 42 44 4 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 52)
+            (pc))) "tester/file_tester.c":146:8 891 {*jcc}
+     (nil)
+ -> 52)
+;;  succ:       5 (FALLTHRU)
+;;              6
+
+;; basic block 5, loop depth 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       4 (FALLTHRU)
+;; bb 5 artificial_defs: { }
+;; bb 5 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 44 43 45 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 45 44 46 5 (set (reg/f:DI 118)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":147:21 80 {*movdi_internal}
+     (nil))
+(insn 46 45 47 5 (set (mem:SI (plus:DI (reg/f:DI 118)
+                (const_int 32 [0x20])) [4 tester_36(D)->error+0 S4 A64])
+        (const_int 1 [0x1])) "tester/file_tester.c":147:21 81 {*movsi_internal}
+     (nil))
+(insn 47 46 48 5 (set (reg:DI 119)
+        (symbol_ref/f:DI ("*.LC6") [flags 0x2]  <var_decl 0x7f20b703c120 *.LC6>)) "tester/file_tester.c":148:7 80 {*movdi_internal}
+     (nil))
+(insn 48 47 49 5 (set (reg:DI 5 di)
+        (reg:DI 119)) "tester/file_tester.c":148:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC6") [flags 0x2]  <var_decl 0x7f20b703c120 *.LC6>)
+        (nil)))
+(call_insn 49 48 200 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":148:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 200 49 201 5 (set (pc)
+        (label_ref 198)) "tester/file_tester.c":152:5 -1
+     (nil)
+ -> 198)
+;;  succ:       20 [always]  tester/file_tester.c:152:5
+
+(barrier 201 200 52)
+;; basic block 6, loop depth 0, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       4
+;; bb 6 artificial_defs: { }
+;; bb 6 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 52 201 53 6 35 (nil) [1 uses])
+(note 53 52 54 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 54 53 55 6 (set (reg:DI 120)
+        (symbol_ref/f:DI ("*.LC14") [flags 0x2]  <var_decl 0x7f20b7047360 *.LC14>)) "tester/file_tester.c":150:7 80 {*movdi_internal}
+     (nil))
+(insn 55 54 56 6 (set (reg:DI 5 di)
+        (reg:DI 120)) "tester/file_tester.c":150:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC14") [flags 0x2]  <var_decl 0x7f20b7047360 *.LC14>)
+        (nil)))
+(call_insn 56 55 202 6 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":150:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 202 56 203 6 (set (pc)
+        (label_ref 198)) "tester/file_tester.c":152:5 -1
+     (nil)
+ -> 198)
+;;  succ:       20 [always]  tester/file_tester.c:152:5
+
+(barrier 203 202 61)
+;; basic block 7, loop depth 0, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       3
+;; bb 7 artificial_defs: { }
+;; bb 7 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 61 203 62 7 34 (nil) [1 uses])
+(note 62 61 63 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 63 62 64 7 (set (reg:SI 121)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32])) "tester/file_tester.c":154:36 81 {*movsi_internal}
+     (nil))
+(insn 64 63 65 7 (parallel [
+            (set (reg:SI 86 [ _5 ])
+                (plus:SI (reg:SI 121)
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":154:36 229 {*addsi_1}
+     (expr_list:REG_EQUAL (plus:SI (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32])
+            (const_int 1 [0x1]))
+        (nil)))
+(insn 65 64 66 7 (set (reg:DI 87 [ _6 ])
+        (sign_extend:DI (reg:SI 86 [ _5 ]))) "tester/file_tester.c":154:24 154 {*extendsidi2_rex64}
+     (nil))
+(insn 66 65 67 7 (set (reg:DI 4 si)
+        (const_int 1 [0x1])) "tester/file_tester.c":154:24 80 {*movdi_internal}
+     (nil))
+(insn 67 66 68 7 (set (reg:DI 5 di)
+        (reg:DI 87 [ _6 ])) "tester/file_tester.c":154:24 80 {*movdi_internal}
+     (nil))
+(call_insn 68 67 69 7 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("calloc") [flags 0x41]  <function_decl 0x7f20b72d8500 calloc>) [0 __builtin_calloc S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":154:24 909 {*call_value}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 69 68 70 7 (set (reg/f:DI 122)
+        (reg:DI 0 ax)) "tester/file_tester.c":154:24 80 {*movdi_internal}
+     (expr_list:REG_NOALIAS (reg/f:DI 122)
+        (nil)))
+(insn 70 69 71 7 (set (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])
+        (reg/f:DI 122)) "tester/file_tester.c":154:24 80 {*movdi_internal}
+     (nil))
+(insn 71 70 72 7 (set (reg:SI 123)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -28 [0xffffffffffffffe4])) [4 offset+0 S4 A32])) "tester/file_tester.c":156:14 81 {*movsi_internal}
+     (nil))
+(insn 72 71 73 7 (set (reg:SI 124)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32])) "tester/file_tester.c":156:14 81 {*movsi_internal}
+     (nil))
+(insn 73 72 74 7 (parallel [
+            (set (reg:SI 88 [ _7 ])
+                (plus:SI (reg:SI 123)
+                    (reg:SI 124)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":156:14 229 {*addsi_1}
+     (expr_list:REG_EQUAL (plus:SI (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -28 [0xffffffffffffffe4])) [4 offset+0 S4 A32])
+            (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32]))
+        (nil)))
+(insn 74 73 75 7 (set (reg/f:DI 125)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":156:29 80 {*movdi_internal}
+     (nil))
+(insn 75 74 76 7 (set (reg/f:DI 89 [ _8 ])
+        (mem/f:DI (plus:DI (reg/f:DI 125)
+                (const_int 24 [0x18])) [2 tester_36(D)->inner_file+0 S8 A64])) "tester/file_tester.c":156:29 80 {*movdi_internal}
+     (nil))
+(insn 76 75 77 7 (set (reg:SI 90 [ _9 ])
+        (mem:SI (plus:DI (reg/f:DI 89 [ _8 ])
+                (const_int 4 [0x4])) [4 _8->size+0 S4 A32])) "tester/file_tester.c":156:41 81 {*movsi_internal}
+     (nil))
+(insn 77 76 78 7 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg:SI 88 [ _7 ])
+            (reg:SI 90 [ _9 ]))) "tester/file_tester.c":156:6 11 {*cmpsi_1}
+     (nil))
+(jump_insn 78 77 79 7 (set (pc)
+        (if_then_else (le (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 110)
+            (pc))) "tester/file_tester.c":156:6 891 {*jcc}
+     (nil)
+ -> 110)
+;;  succ:       8 (FALLTHRU)
+;;              11
+
+;; basic block 8, loop depth 0, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       7 (FALLTHRU)
+;; bb 8 artificial_defs: { }
+;; bb 8 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 79 78 80 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 80 79 81 8 (set (reg/f:DI 126)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":157:25 80 {*movdi_internal}
+     (nil))
+(insn 81 80 82 8 (set (reg/f:DI 91 [ _10 ])
+        (mem/f:DI (plus:DI (reg/f:DI 126)
+                (const_int 24 [0x18])) [2 tester_36(D)->inner_file+0 S8 A64])) "tester/file_tester.c":157:25 80 {*movdi_internal}
+     (nil))
+(insn 82 81 83 8 (set (reg:DI 127)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])) "tester/file_tester.c":157:9 80 {*movdi_internal}
+     (nil))
+(insn 83 82 84 8 (set (reg:SI 128)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32])) "tester/file_tester.c":157:9 81 {*movsi_internal}
+     (nil))
+(insn 84 83 85 8 (set (reg:SI 129)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -28 [0xffffffffffffffe4])) [4 offset+0 S4 A32])) "tester/file_tester.c":157:9 81 {*movsi_internal}
+     (nil))
+(insn 85 84 86 8 (set (reg:DI 2 cx)
+        (reg:DI 127)) "tester/file_tester.c":157:9 80 {*movdi_internal}
+     (nil))
+(insn 86 85 87 8 (set (reg:SI 1 dx)
+        (reg:SI 128)) "tester/file_tester.c":157:9 81 {*movsi_internal}
+     (nil))
+(insn 87 86 88 8 (set (reg:SI 4 si)
+        (reg:SI 129)) "tester/file_tester.c":157:9 81 {*movsi_internal}
+     (nil))
+(insn 88 87 89 8 (set (reg:DI 5 di)
+        (reg/f:DI 91 [ _10 ])) "tester/file_tester.c":157:9 80 {*movdi_internal}
+     (nil))
+(call_insn 89 88 90 8 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("file_read") [flags 0x41]  <function_decl 0x7f20b7341700 file_read>) [0 file_read S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":157:9 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+(insn 90 89 91 8 (set (reg:SI 92 [ _11 ])
+        (reg:SI 0 ax)) "tester/file_tester.c":157:9 81 {*movsi_internal}
+     (nil))
+(insn 91 90 92 8 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 92 [ _11 ])
+            (const_int 0 [0]))) "tester/file_tester.c":157:8 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 92 91 93 8 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 101)
+            (pc))) "tester/file_tester.c":157:8 891 {*jcc}
+     (nil)
+ -> 101)
+;;  succ:       9 (FALLTHRU)
+;;              10
+
+;; basic block 9, loop depth 0, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       8 (FALLTHRU)
+;; bb 9 artificial_defs: { }
+;; bb 9 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 93 92 94 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 94 93 95 9 (set (reg/f:DI 130)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":158:21 80 {*movdi_internal}
+     (nil))
+(insn 95 94 96 9 (set (mem:SI (plus:DI (reg/f:DI 130)
+                (const_int 32 [0x20])) [4 tester_36(D)->error+0 S4 A64])
+        (const_int 1 [0x1])) "tester/file_tester.c":158:21 81 {*movsi_internal}
+     (nil))
+(insn 96 95 97 9 (set (reg:DI 131)
+        (symbol_ref/f:DI ("*.LC6") [flags 0x2]  <var_decl 0x7f20b703c120 *.LC6>)) "tester/file_tester.c":159:7 80 {*movdi_internal}
+     (nil))
+(insn 97 96 98 9 (set (reg:DI 5 di)
+        (reg:DI 131)) "tester/file_tester.c":159:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC6") [flags 0x2]  <var_decl 0x7f20b703c120 *.LC6>)
+        (nil)))
+(call_insn 98 97 204 9 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":159:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 204 98 205 9 (set (pc)
+        (label_ref 191)) "tester/file_tester.c":163:5 -1
+     (nil)
+ -> 191)
+;;  succ:       19 [always]  tester/file_tester.c:163:5
+
+(barrier 205 204 101)
+;; basic block 10, loop depth 0, maybe hot
+;;  prev block 9, next block 11, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       8
+;; bb 10 artificial_defs: { }
+;; bb 10 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 101 205 102 10 38 (nil) [1 uses])
+(note 102 101 103 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 103 102 104 10 (set (reg:DI 132)
+        (symbol_ref/f:DI ("*.LC14") [flags 0x2]  <var_decl 0x7f20b7047360 *.LC14>)) "tester/file_tester.c":161:7 80 {*movdi_internal}
+     (nil))
+(insn 104 103 105 10 (set (reg:DI 5 di)
+        (reg:DI 132)) "tester/file_tester.c":161:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC14") [flags 0x2]  <var_decl 0x7f20b7047360 *.LC14>)
+        (nil)))
+(call_insn 105 104 206 10 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":161:7 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 206 105 207 10 (set (pc)
+        (label_ref 191)) "tester/file_tester.c":163:5 -1
+     (nil)
+ -> 191)
+;;  succ:       19 [always]  tester/file_tester.c:163:5
+
+(barrier 207 206 110)
+;; basic block 11, loop depth 0, maybe hot
+;;  prev block 10, next block 12, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       7
+;; bb 11 artificial_defs: { }
+;; bb 11 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 110 207 111 11 37 (nil) [1 uses])
+(note 111 110 112 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(insn 112 111 113 11 (set (reg/f:DI 133)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":165:17 80 {*movdi_internal}
+     (nil))
+(insn 113 112 114 11 (set (mem:SI (plus:DI (reg/f:DI 133)
+                (const_int 32 [0x20])) [4 tester_36(D)->error+0 S4 A64])
+        (const_int 1 [0x1])) "tester/file_tester.c":165:17 81 {*movsi_internal}
+     (nil))
+(insn 114 113 115 11 (set (reg/f:DI 134)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":167:24 80 {*movdi_internal}
+     (nil))
+(insn 115 114 116 11 (set (reg/f:DI 93 [ _12 ])
+        (mem/f:DI (plus:DI (reg/f:DI 134)
+                (const_int 24 [0x18])) [2 tester_36(D)->inner_file+0 S8 A64])) "tester/file_tester.c":167:24 80 {*movdi_internal}
+     (nil))
+(insn 116 115 117 11 (set (reg:DI 135)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])) "tester/file_tester.c":167:8 80 {*movdi_internal}
+     (nil))
+(insn 117 116 118 11 (set (reg:SI 136)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32])) "tester/file_tester.c":167:8 81 {*movsi_internal}
+     (nil))
+(insn 118 117 119 11 (set (reg:SI 137)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -28 [0xffffffffffffffe4])) [4 offset+0 S4 A32])) "tester/file_tester.c":167:8 81 {*movsi_internal}
+     (nil))
+(insn 119 118 120 11 (set (reg:DI 2 cx)
+        (reg:DI 135)) "tester/file_tester.c":167:8 80 {*movdi_internal}
+     (nil))
+(insn 120 119 121 11 (set (reg:SI 1 dx)
+        (reg:SI 136)) "tester/file_tester.c":167:8 81 {*movsi_internal}
+     (nil))
+(insn 121 120 122 11 (set (reg:SI 4 si)
+        (reg:SI 137)) "tester/file_tester.c":167:8 81 {*movsi_internal}
+     (nil))
+(insn 122 121 123 11 (set (reg:DI 5 di)
+        (reg/f:DI 93 [ _12 ])) "tester/file_tester.c":167:8 80 {*movdi_internal}
+     (nil))
+(call_insn 123 122 124 11 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("file_read") [flags 0x41]  <function_decl 0x7f20b7341700 file_read>) [0 file_read S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":167:8 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+(insn 124 123 125 11 (set (reg:SI 94 [ _13 ])
+        (reg:SI 0 ax)) "tester/file_tester.c":167:8 81 {*movsi_internal}
+     (nil))
+(insn 125 124 126 11 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 94 [ _13 ])
+            (const_int 0 [0]))) "tester/file_tester.c":167:6 7 {*cmpsi_ccno_1}
+     (nil))
+(jump_insn 126 125 127 11 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 133)
+            (pc))) "tester/file_tester.c":167:6 891 {*jcc}
+     (nil)
+ -> 133)
+;;  succ:       12 (FALLTHRU)
+;;              13
+
+;; basic block 12, loop depth 0, maybe hot
+;;  prev block 11, next block 13, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       11 (FALLTHRU)
+;; bb 12 artificial_defs: { }
+;; bb 12 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 127 126 128 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 128 127 129 12 (set (reg:DI 138)
+        (symbol_ref/f:DI ("*.LC18") [flags 0x2]  <var_decl 0x7f20b7056480 *.LC18>)) "tester/file_tester.c":168:5 80 {*movdi_internal}
+     (nil))
+(insn 129 128 130 12 (set (reg:DI 5 di)
+        (reg:DI 138)) "tester/file_tester.c":168:5 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC18") [flags 0x2]  <var_decl 0x7f20b7056480 *.LC18>)
+        (nil)))
+(call_insn 130 129 208 12 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":168:5 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 208 130 209 12 (set (pc)
+        (label_ref 191)) "tester/file_tester.c":169:5 -1
+     (nil)
+ -> 191)
+;;  succ:       19 [always]  tester/file_tester.c:169:5
+
+(barrier 209 208 133)
+;; basic block 13, loop depth 0, maybe hot
+;;  prev block 12, next block 14, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       11
+;; bb 13 artificial_defs: { }
+;; bb 13 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 133 209 134 13 41 (nil) [1 uses])
+(note 134 133 135 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+(insn 135 134 210 13 (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])
+        (const_int 0 [0])) "tester/file_tester.c":172:10 81 {*movsi_internal}
+     (nil))
+(jump_insn 210 135 211 13 (set (pc)
+        (label_ref 179)) "tester/file_tester.c":172:3 -1
+     (nil)
+ -> 179)
+;;  succ:       17 [always]  tester/file_tester.c:172:3
+
+(barrier 211 210 181)
+;; basic block 14, loop depth 0, maybe hot
+;;  prev block 13, next block 15, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       17
+;; bb 14 artificial_defs: { }
+;; bb 14 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 181 211 138 14 44 (nil) [1 uses])
+(note 138 181 139 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+(insn 139 138 140 14 (set (reg:SI 139)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])) "tester/file_tester.c":173:21 81 {*movsi_internal}
+     (nil))
+(insn 140 139 141 14 (set (reg:DI 95 [ _14 ])
+        (sign_extend:DI (reg:SI 139))) "tester/file_tester.c":173:21 154 {*extendsidi2_rex64}
+     (nil))
+(insn 141 140 142 14 (set (reg/f:DI 140)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])) "tester/file_tester.c":173:21 80 {*movdi_internal}
+     (nil))
+(insn 142 141 143 14 (parallel [
+            (set (reg/f:DI 96 [ _15 ])
+                (plus:DI (reg:DI 95 [ _14 ])
+                    (reg/f:DI 140)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":173:21 230 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])
+            (reg:DI 95 [ _14 ]))
+        (nil)))
+(insn 143 142 144 14 (set (reg:QI 97 [ _16 ])
+        (mem:QI (reg/f:DI 96 [ _15 ]) [0 *_15+0 S1 A8])) "tester/file_tester.c":173:21 83 {*movqi_internal}
+     (nil))
+(insn 144 143 145 14 (set (reg:SI 141)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])) "tester/file_tester.c":173:36 81 {*movsi_internal}
+     (nil))
+(insn 145 144 146 14 (set (reg:DI 98 [ _17 ])
+        (sign_extend:DI (reg:SI 141))) "tester/file_tester.c":173:36 154 {*extendsidi2_rex64}
+     (nil))
+(insn 146 145 147 14 (set (reg/f:DI 142)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [1 expected+0 S8 A64])) "tester/file_tester.c":173:36 80 {*movdi_internal}
+     (nil))
+(insn 147 146 148 14 (parallel [
+            (set (reg/f:DI 99 [ _18 ])
+                (plus:DI (reg:DI 98 [ _17 ])
+                    (reg/f:DI 142)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":173:36 230 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -40 [0xffffffffffffffd8])) [1 expected+0 S8 A64])
+            (reg:DI 98 [ _17 ]))
+        (nil)))
+(insn 148 147 149 14 (set (reg:QI 100 [ _19 ])
+        (mem:QI (reg/f:DI 99 [ _18 ]) [0 *_18+0 S1 A8])) "tester/file_tester.c":173:36 83 {*movqi_internal}
+     (nil))
+(insn 149 148 150 14 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:QI 97 [ _16 ])
+            (reg:QI 100 [ _19 ]))) "tester/file_tester.c":173:8 9 {*cmpqi_1}
+     (nil))
+(jump_insn 150 149 151 14 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 176)
+            (pc))) "tester/file_tester.c":173:8 891 {*jcc}
+     (nil)
+ -> 176)
+;;  succ:       15 (FALLTHRU)
+;;              16
+
+;; basic block 15, loop depth 0, maybe hot
+;;  prev block 14, next block 16, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       14 (FALLTHRU)
+;; bb 15 artificial_defs: { }
+;; bb 15 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 151 150 152 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+(insn 152 151 153 15 (set (reg:SI 143)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])) "tester/file_tester.c":175:51 81 {*movsi_internal}
+     (nil))
+(insn 153 152 154 15 (set (reg:DI 101 [ _20 ])
+        (sign_extend:DI (reg:SI 143))) "tester/file_tester.c":175:51 154 {*extendsidi2_rex64}
+     (nil))
+(insn 154 153 155 15 (set (reg/f:DI 144)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -40 [0xffffffffffffffd8])) [1 expected+0 S8 A64])) "tester/file_tester.c":175:51 80 {*movdi_internal}
+     (nil))
+(insn 155 154 156 15 (parallel [
+            (set (reg/f:DI 102 [ _21 ])
+                (plus:DI (reg:DI 101 [ _20 ])
+                    (reg/f:DI 144)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":175:51 230 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -40 [0xffffffffffffffd8])) [1 expected+0 S8 A64])
+            (reg:DI 101 [ _20 ]))
+        (nil)))
+(insn 156 155 157 15 (set (reg:QI 103 [ _22 ])
+        (mem:QI (reg/f:DI 102 [ _21 ]) [0 *_21+0 S1 A8])) "tester/file_tester.c":175:51 83 {*movqi_internal}
+     (nil))
+(insn 157 156 158 15 (set (reg:SI 104 [ _23 ])
+        (sign_extend:SI (reg:QI 103 [ _22 ]))) "tester/file_tester.c":174:7 160 {extendqisi2}
+     (nil))
+(insn 158 157 159 15 (set (reg:SI 145)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])) "tester/file_tester.c":175:38 81 {*movsi_internal}
+     (nil))
+(insn 159 158 160 15 (set (reg:DI 105 [ _24 ])
+        (sign_extend:DI (reg:SI 145))) "tester/file_tester.c":175:38 154 {*extendsidi2_rex64}
+     (nil))
+(insn 160 159 161 15 (set (reg/f:DI 146)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])) "tester/file_tester.c":175:38 80 {*movdi_internal}
+     (nil))
+(insn 161 160 162 15 (parallel [
+            (set (reg/f:DI 106 [ _25 ])
+                (plus:DI (reg:DI 105 [ _24 ])
+                    (reg/f:DI 146)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":175:38 230 {*adddi_1}
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])
+            (reg:DI 105 [ _24 ]))
+        (nil)))
+(insn 162 161 163 15 (set (reg:QI 107 [ _26 ])
+        (mem:QI (reg/f:DI 106 [ _25 ]) [0 *_25+0 S1 A8])) "tester/file_tester.c":175:38 83 {*movqi_internal}
+     (nil))
+(insn 163 162 164 15 (set (reg:SI 108 [ _27 ])
+        (sign_extend:SI (reg:QI 107 [ _26 ]))) "tester/file_tester.c":174:7 160 {extendqisi2}
+     (nil))
+(insn 164 163 165 15 (set (reg:SI 147)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -28 [0xffffffffffffffe4])) [4 offset+0 S4 A32])) "tester/file_tester.c":174:7 81 {*movsi_internal}
+     (nil))
+(insn 165 164 166 15 (set (reg:SI 148)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])) "tester/file_tester.c":174:7 81 {*movsi_internal}
+     (nil))
+(insn 166 165 167 15 (parallel [
+            (set (reg:SI 109 [ _28 ])
+                (plus:SI (reg:SI 147)
+                    (reg:SI 148)))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":174:7 229 {*addsi_1}
+     (expr_list:REG_EQUAL (plus:SI (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -28 [0xffffffffffffffe4])) [4 offset+0 S4 A32])
+            (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32]))
+        (nil)))
+(insn 167 166 168 15 (set (reg:SI 2 cx)
+        (reg:SI 104 [ _23 ])) "tester/file_tester.c":174:7 81 {*movsi_internal}
+     (nil))
+(insn 168 167 169 15 (set (reg:SI 1 dx)
+        (reg:SI 108 [ _27 ])) "tester/file_tester.c":174:7 81 {*movsi_internal}
+     (nil))
+(insn 169 168 170 15 (set (reg:SI 4 si)
+        (reg:SI 109 [ _28 ])) "tester/file_tester.c":174:7 81 {*movsi_internal}
+     (nil))
+(insn 170 169 171 15 (set (reg:DI 149)
+        (symbol_ref/f:DI ("*.LC16") [flags 0x2]  <var_decl 0x7f20b7047480 *.LC16>)) "tester/file_tester.c":174:7 80 {*movdi_internal}
+     (nil))
+(insn 171 170 172 15 (set (reg:DI 5 di)
+        (reg:DI 149)) "tester/file_tester.c":174:7 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC16") [flags 0x2]  <var_decl 0x7f20b7047480 *.LC16>)
+        (nil)))
+(insn 172 171 173 15 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "tester/file_tester.c":174:7 83 {*movqi_internal}
+     (nil))
+(call_insn 173 172 212 15 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("printf") [flags 0x41]  <function_decl 0x7f20b72c6000 printf>) [0 __builtin_printf S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":174:7 909 {*call_value}
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (expr_list:SI (use (reg:SI 2 cx))
+                        (nil)))))))
+(jump_insn 212 173 213 15 (set (pc)
+        (label_ref 191)) "tester/file_tester.c":176:7 -1
+     (nil)
+ -> 191)
+;;  succ:       19 [always]  tester/file_tester.c:176:7
+
+(barrier 213 212 176)
+;; basic block 16, loop depth 0, maybe hot
+;;  prev block 15, next block 17, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       14
+;; bb 16 artificial_defs: { }
+;; bb 16 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 176 213 177 16 43 (nil) [1 uses])
+(note 177 176 178 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+(insn 178 177 179 16 (parallel [
+            (set (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                        (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])
+                (plus:SI (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                            (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "tester/file_tester.c":172:26 229 {*addsi_1}
+     (nil))
+;;  succ:       17 (FALLTHRU,DFS_BACK)
+
+;; basic block 17, loop depth 0, maybe hot
+;;  prev block 16, next block 18, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       16 (FALLTHRU,DFS_BACK)
+;;              13 [always]  tester/file_tester.c:172:3
+;; bb 17 artificial_defs: { }
+;; bb 17 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 179 178 180 17 42 (nil) [1 uses])
+(note 180 179 182 17 [bb 17] NOTE_INSN_BASIC_BLOCK)
+(insn 182 180 183 17 (set (reg:SI 150)
+        (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                (const_int -12 [0xfffffffffffffff4])) [4 i+0 S4 A32])) "tester/file_tester.c":172:17 81 {*movsi_internal}
+     (nil))
+(insn 183 182 184 17 (set (reg:CCGC 17 flags)
+        (compare:CCGC (reg:SI 150)
+            (mem/c:SI (plus:DI (reg/f:DI 19 frame)
+                    (const_int -32 [0xffffffffffffffe0])) [4 size+0 S4 A32]))) "tester/file_tester.c":172:17 11 {*cmpsi_1}
+     (nil))
+(jump_insn 184 183 185 17 (set (pc)
+        (if_then_else (lt (reg:CCGC 17 flags)
+                (const_int 0 [0]))
+            (label_ref 181)
+            (pc))) "tester/file_tester.c":172:17 891 {*jcc}
+     (nil)
+ -> 181)
+;;  succ:       14
+;;              18 (FALLTHRU)
+
+;; basic block 18, loop depth 0, maybe hot
+;;  prev block 17, next block 19, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       17 (FALLTHRU)
+;; bb 18 artificial_defs: { }
+;; bb 18 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(note 185 184 186 18 [bb 18] NOTE_INSN_BASIC_BLOCK)
+(insn 186 185 187 18 (set (reg/f:DI 151)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -24 [0xffffffffffffffe8])) [7 tester+0 S8 A64])) "tester/file_tester.c":179:17 80 {*movdi_internal}
+     (nil))
+(insn 187 186 188 18 (set (mem:SI (plus:DI (reg/f:DI 151)
+                (const_int 32 [0x20])) [4 tester_36(D)->error+0 S4 A64])
+        (const_int 0 [0])) "tester/file_tester.c":179:17 81 {*movsi_internal}
+     (nil))
+(insn 188 187 189 18 (set (reg:DI 152)
+        (symbol_ref/f:DI ("*.LC19") [flags 0x2]  <var_decl 0x7f20b7056510 *.LC19>)) "tester/file_tester.c":180:3 80 {*movdi_internal}
+     (nil))
+(insn 189 188 190 18 (set (reg:DI 5 di)
+        (reg:DI 152)) "tester/file_tester.c":180:3 80 {*movdi_internal}
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC19") [flags 0x2]  <var_decl 0x7f20b7056510 *.LC19>)
+        (nil)))
+(call_insn 190 189 191 18 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("puts") [flags 0x41]  <function_decl 0x7f20b72c6700 __builtin_puts>) [0 __builtin_puts S1 A8])
+            (const_int 0 [0]))) "tester/file_tester.c":180:3 909 {*call_value}
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+;;  succ:       19 (FALLTHRU)
+
+;; basic block 19, loop depth 0, maybe hot
+;;  prev block 18, next block 21, flags: (NEW, REACHABLE, RTL, MODIFIED, VISITED)
+;;  pred:       9 [always]  tester/file_tester.c:163:5
+;;              10 [always]  tester/file_tester.c:163:5
+;;              12 [always]  tester/file_tester.c:169:5
+;;              18 (FALLTHRU)
+;;              15 [always]  tester/file_tester.c:176:7
+;; bb 19 artificial_defs: { }
+;; bb 19 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 191 190 192 19 40 ("test_read_clear") [4 uses])
+(note 192 191 193 19 [bb 19] NOTE_INSN_BASIC_BLOCK)
+(insn 193 192 194 19 (set (reg:DI 153)
+        (mem/f/c:DI (plus:DI (reg/f:DI 19 frame)
+                (const_int -8 [0xfffffffffffffff8])) [1 readout_data+0 S8 A64])) "tester/file_tester.c":182:3 80 {*movdi_internal}
+     (nil))
+(insn 194 193 195 19 (set (reg:DI 5 di)
+        (reg:DI 153)) "tester/file_tester.c":182:3 80 {*movdi_internal}
+     (nil))
+(call_insn 195 194 214 19 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7f20b72ddc00 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "tester/file_tester.c":182:3 898 {*call}
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(jump_insn 214 195 215 19 (set (pc)
+        (label_ref 198)) -1
+     (nil)
+ -> 198)
+;;  succ:       20
+
+(barrier 215 214 217)
+;; basic block 21, loop depth 0, maybe hot
+;;  prev block 19, next block 20, flags: (NEW, RTL, MODIFIED)
+;;  pred:       2 tester/file_tester.c:142:5
+;; bb 21 artificial_defs: { }
+;; bb 21 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 217 215 216 21 45 (nil) [1 uses])
+(note 216 217 218 21 [bb 21] NOTE_INSN_BASIC_BLOCK)
+(insn 218 216 198 21 (const_int 0 [0]) "tester/file_tester.c":142:5 -1
+     (nil))
+;;  succ:       20 [always]  (FALLTHRU)
+
+;; basic block 20, loop depth 0, maybe hot
+;;  prev block 21, next block 1, flags: (NEW, REACHABLE, RTL, MODIFIED)
+;;  pred:       6 [always]  tester/file_tester.c:152:5
+;;              21 [always]  (FALLTHRU)
+;;              5 [always]  tester/file_tester.c:152:5
+;;              19
+;; bb 20 artificial_defs: { }
+;; bb 20 artificial_uses: { u-1(6){ }u-1(7){ }u-1(16){ }u-1(19){ }}
+(code_label 198 218 199 20 31 (nil) [3 uses])
+(note 199 198 0 20 [bb 20] NOTE_INSN_BASIC_BLOCK)
+;;  succ:       EXIT [always]  (FALLTHRU)
+
