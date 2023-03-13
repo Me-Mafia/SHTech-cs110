@@ -194,7 +194,7 @@ int translate_inst(FILE *basic_code, FILE *machine_code, const char *name, char 
         if(num_args!=1) return 0;
         sub_args[0] = "x0";
         sub_args[1] = args[0];
-        sub_args[0] = "0x0";
+        sub_args[2] = "0x0";
      
         if(write_instruction(basic_code, machine_code, "jalr", sub_args, 3, addr, symtbl)==-1)
             return 0;
@@ -574,15 +574,13 @@ int write_itype(FILE *basic_code, FILE *machine_code, const char *name, uint8_t 
         return -1;
     }
     /* write basic code */
-    write_inst_rtype(basic_code, name, rd, rs, imm);
+    write_inst_sbtype(basic_code, name, rd, rs, imm);
     /* generate instruction */
     instruction = opcode + (rd << 7) + (funct3 << 12) + (rs << 15) + (imm << 20);
 
     /* write machine code */
     write_inst_hex(machine_code, instruction);
     return 0;
-    
-    
 }
 
 int write_stype(FILE *basic_code, FILE *machine_code, const char *name, uint8_t opcode, 

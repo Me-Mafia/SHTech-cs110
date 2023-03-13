@@ -1,10 +1,1 @@
-Error - extra argument at line 1823863676: addi
-Error - extra argument at line 1: addi
-Error - extra argument at line 2: jal
-Error - extra argument at line 1823863676: ori
-Error - extra argument at line 3: ori
-Error - extra argument at line 1823863676: bne
-Error - extra argument at line 4: bne
-Error - extra argument at line 1823863676: addi
-Error - extra argument at line 5: addi
-One or more errors encountered during assembly operation.
+Assembly operation completed successfully!

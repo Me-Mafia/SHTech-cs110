@@ -1,2 +1,12 @@
-0	label
-0	l1
+add a0 a0 a1
+or a2 a3 t0
+jr t1
+slt t2 t2 s0
+slt s1 s2 s3
+lui t3 123
+jal label
+l2: addi t3 t1
+ori t3 t2 0xABC
+addi t3 99 3
+ori t1 t0 0xFFFFFFFF
+bne t0 t1 not_found

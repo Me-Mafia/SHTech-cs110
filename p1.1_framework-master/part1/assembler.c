@@ -175,104 +175,144 @@ static int add_if_label(uint32_t input_line, char *str, uint32_t byte_offset,
  */
 
 int pass_one(FILE *input, FILE *original, FILE *symtbl, FILE *data) {
-    /* YOUR CODE HERE */
-    SymbolTable *table = create_table_from_file(SYMBOLTBL_UNIQUE_NAME,symtbl);
-    char *args[MAX_ARGS];
-    int error = 0;
-    /*buffer*/
-    char buf[BUF_SIZE];
-    Byte buffer[BUF_SIZE]={0};
-    /* line number & byte offset */
-    int linenum = 0,  offset = 0;
-    char *name;
-    int argnum;
-    int istext=0; /*check if text*/
-    while (fgets(buf, sizeof(buf), input)){
-        linenum ++;
-        /* skip comments */
+    SymbolTable* table=create_table(SYMBOLTBL_UNIQUE_NAME);
+    int is_data=0; /* default to .text */
+    uint32_t byted_offset=0, bytet_offset=0;
+    /*testing*/
+    char buf[BUF_SIZE]={0};
+    int error=0;
+    int linenum=0;/*testing*/
+    char* temp=NULL;
+    int tmp=0;
+    int i,j;
+    int argnum=0;
+    char data_buf[9]={0};
+    char tmp_buf[9]={0};/*testing*/
+    int size_buf=0;
+    long k=0;
+    /*testing*/
+    if(!input||!original||!symtbl||!data) return -1;
+    while(fgets(buf,BUF_SIZE,input)){
         skip_comments(buf);
-        if(strlen(buf)==0) continue;
-        name = strtok(buf, IGNORE_CHARS);
-        if(name){
-            /*check if text or data*/
-            if(strcmp(name,".data")==0){
-                istext=0;
-                continue;
-            }
-            if(strcmp(name,".text")==0){
-                istext=1;
-                continue;
-            }
-            /* Reads STR and determines whether it is a label*/
-            if(istext==0){ /*data*/
-                if(add_if_label(linenum, name, offset, table,0)==0){
-                    error = -1;
-                    raise_extra_argument_error(argnum, name);
-                }
-                else name = strtok(NULL, IGNORE_CHARS);
-                if (name == NULL) continue;
-                /*valid instruction*/
-                if (strcmp(name,".word")==0){
-                    while(name!=NULL){
-                        Byte temp[8];
-                        translate_num_32((long*)temp,name);
-                        memcpy(buffer+offset-DATA_BASE,temp,4);
-                        offset+=4;
-                    }
-                }
-                else if(strcmp(name,".half")==0){
-                    while(name!=NULL){
-                        Byte temp[8];
-                        translate_num_32((long*)temp,name);
-                        memcpy(buffer+offset-DATA_BASE,temp,2);
-                        offset+=2;
-                    }
-                }
-                else if(strcmp(name,".byte")==0){
-                    while(name!=NULL){
-                        Byte temp[8];
-                        translate_num_32((long*)temp,name);
-                        memcpy(buffer+offset-DATA_BASE,temp,1);
-                        offset+=1;
-                    }
-                }
-                else{
-                    error=-1;
-                    raise_extra_argument_error(linenum,name);
-                }
-            }
-            else if(istext==1){
-                if(add_if_label(linenum,name,offset,table,0)!=0){
-                    name=strtok(NULL,IGNORE_CHARS);
-                }
-                else{
-                    error=-1;
-                    raise_extra_argument_error(linenum,name);
-                }
-                args[argnum]=name;
-                argnum++;
-                if(argnum>=MAX_ARGS){
-                    error=-1;
-                    raise_extra_argument_error(linenum,name);
-                }
-            }
-            if(istext==0){ /*data*/
-                write_static_data(data,buffer);
-            }
-            if(istext==1){ /*text*/
-                write_original_code(original,name,args,argnum);
-            }
+        linenum+=1; tmp=0;
+        temp=strtok(buf,IGNORE_CHARS);
+        if(temp==NULL) continue;
+        /*data*/
+        else if(!strcmp(temp,".data")){
+            is_data=1;continue;
+        }/*text*/
+        else if(!strcmp(temp,".text")){
+            is_data=0;continue;
         }
-
+        else{
+            if(is_data) tmp=add_if_label(linenum,temp,byted_offset+DATA_BASE,table,0);
+            else  tmp=add_if_label(linenum,temp,bytet_offset+TEXT_BASE,table,0);
+            if(tmp==-1){/*testing*/
+                error=-1;continue;
+            }
+            if(tmp==1){
+                temp=strtok(NULL,IGNORE_CHARS);
+                if(!temp) continue; 
+            }/*testing*/
+        }
+        if(is_data){/*testing*/
+            if(strcmp(temp,".word")==0){
+                temp=strtok(NULL,IGNORE_CHARS);
+                while(temp){
+                    k=strtol(temp,NULL,0);/* k exists when ptr exists */
+                    sprintf(tmp_buf,"%08x",(int)k);
+                    if (size_buf==1||size_buf==2||size_buf==4||size_buf==6){
+                        for (i=0;i<8;i++){
+                            j = (i+size_buf<=7)? (i+size_buf):(i+size_buf-8);
+                            data_buf[i] = tmp_buf [j] ;
+                            if(j==7){
+                                fprintf(data,"%s\n",data_buf);
+                                strcpy(data_buf,"00000000");
+                            }
+                        }
+                    }
+                  /*testing*/
+                    /*write_static_data(data,(Byte*)temp);*/
+                    byted_offset+=4;
+                    temp=strtok(NULL,IGNORE_CHARS);
+                }/*testing*/
+            continue;
+            }/*testing*/
+            else if(strcmp(temp,".byte")==0){
+                /* buf_2 to k at most 4 bytes of data, aka a line */
+                temp=strtok(NULL,IGNORE_CHARS);
+                while(temp){      
+                    k=strtol(temp,NULL,0);/* k exists when ptr exists */
+                    sprintf(tmp_buf,"%02x",(int)k);
+                    /*testing*/
+                    data_buf[7-size_buf-1]=tmp_buf[0];
+                    data_buf[7-size_buf]=tmp_buf[1];
+                    size_buf+=2;
+                    /*if(size_buf==8){
+                        size_buf=0;
+                        fprintf(data,"%s\n",data_buf);
+                        strcpy(data_buf,"00000000");
+                    }*/
+                    byted_offset+=1;
+                    temp=strtok(NULL,IGNORE_CHARS);
+                }/*testing*/
+                continue;
+            }
+            else if(strcmp(temp,".half")==0){
+                temp=strtok(NULL,IGNORE_CHARS);/*testing*/
+                while(temp){             
+                    k=strtol(temp,NULL,0);/* k exists when ptr exists */
+                    sprintf(tmp_buf,"%04x",(int)k);
+                    if(size_buf<=4){
+                        for (i = 0;i<4;i++){
+                            data_buf[4+i-size_buf] = tmp_buf[i];
+                            if(size_buf == 4){
+                                size_buf=0;
+                                fprintf(data,"%s\n",data_buf);
+                                strcpy(data_buf,"00000000");
+                            }
+                        }
+                    }
+                    /*if(size_buf==6){
+                        for(i =0;i<2;i++) data_buf[i]=tmp_buf[i+2];
+                        fprintf(data,"%s\n",data_buf);
+                        strcpy(data_buf,"00000000");
+                        data_buf[6]=tmp_buf[0];
+                        data_buf[7]=tmp_buf[1];
+                    }*/
+                    byted_offset+=2;
+                    temp=strtok(NULL,IGNORE_CHARS);
+                }
+                continue;
+            }/*testing*/
+        }
+        else{
+            char* name=NULL; /*k name*/
+            char* args[MAX_ARGS]={0};/*max argument number: 3 */
+            argnum=0;
+            if(temp){
+                name= temp;
+                temp=strtok(NULL,IGNORE_CHARS);
+                while(temp){
+                    if(argnum>=MAX_ARGS){
+                        raise_extra_argument_error(linenum,temp);
+                        error=-1;
+                        break;
+                    }/*testing*/
+                    args[argnum]=temp;
+                    argnum++;
+                    temp=strtok(NULL,IGNORE_CHARS);
+                }
+                bytet_offset+=4*write_original_code(original,name,args,argnum);
+            }
+           /*testing*/
+        }
     }
-            
-        
-    /* write table */
-    write_table(table, original);
-    free_table(table);
-    /* no characters left */
+    if(size_buf!=0) fprintf(data,"%s\n",data_buf);
+    write_table(table, symtbl);
+    free_table(table);/*testing*/
     return error;
-}
+}/*testing*/
 
 /* Second pass of the assembler.
 
@@ -299,8 +339,10 @@ int pass_two(FILE *original, FILE *symtbl, FILE *basic, FILE *machine) {
     char *name = NULL; char* temp= NULL;
     int argnum;int transinst;
     while (fgets(buf, sizeof(buf), original)){
+        /*int i = 0;*/
         linenum ++;
         temp = strtok(buf, IGNORE_CHARS);
+        write_to_log("%s ", temp);
         if(temp) name = temp;
         else{
             error =-1;
@@ -315,6 +357,12 @@ int pass_two(FILE *original, FILE *symtbl, FILE *basic, FILE *machine) {
             temp = strtok(NULL,IGNORE_CHARS);
             argnum++;
         }
+        
+        /*for (i = 0; i < argnum; i++)
+            write_to_log("%s ", args[i]);
+        write_to_log("%d", argnum);
+        write_to_log("\n");*/
+        
         /* translate the instruction */
         transinst = translate_inst(basic, machine, name, args, argnum, 4*(linenum-1), table);
         if (!transinst){ /* 0 if error */
