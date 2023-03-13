@@ -1,0 +1,27 @@
+Error - extra argument at line 501091952: add
+Error - extra argument at line 3: add
+Error - extra argument at line 501091952: or
+Error - extra argument at line 5: or
+Error - extra argument at line 501091952: jr
+Error - extra argument at line 6: jr
+Error - invalid label at line 7: 3hello
+Error - extra argument at line 501091952: slt
+Error - extra argument at line 8: slt
+Error - extra argument at line 501091952: slt
+Error - extra argument at line 9: slt
+Error - extra argument at line 501091952: lui
+Error - extra argument at line 10: lui
+Error: name 'label' already exists in table.
+Error - extra argument at line 11: lb
+Error - extra argument at line 501091952: jal
+Error - extra argument at line 12: jal
+Error - extra argument at line 13: l2:
+Error - extra argument at line 501091952: ori
+Error - extra argument at line 14: ori
+Error - extra argument at line 501091952: addi
+Error - extra argument at line 17: addi
+Error - extra argument at line 501091952: ori
+Error - extra argument at line 18: ori
+Error - extra argument at line 501091952: bne
+Error - extra argument at line 19: bne
+One or more errors encountered during assembly operation.

@@ -133,7 +133,7 @@ static int add_if_label(uint32_t input_line, char *str, uint32_t byte_offset,
       Appears. Ignore the rest token of this line. Default to text segment 
       if not indicated.
     
-   2. For data segment, we only considering ".word", ".half", ".byte" types.
+   2. For data segment, we only considering ".word", ".half", ".Byte" types.
       These types must be the first token of a line. The rest of the tokens 
       in this line will be stored as variables of that type in the data segment.
       You can assume that these numbers are legal with their types.
@@ -176,102 +176,6 @@ static int add_if_label(uint32_t input_line, char *str, uint32_t byte_offset,
 
 int pass_one(FILE *input, FILE *original, FILE *symtbl, FILE *data) {
     /* YOUR CODE HERE */
-    SymbolTable *table = create_table_from_file(SYMBOLTBL_UNIQUE_NAME,symtbl);
-    char *args[MAX_ARGS];
-    int error = 0;
-    /*buffer*/
-    char buf[BUF_SIZE];
-    Byte buffer[BUF_SIZE]={0};
-    /* line number & byte offset */
-    int linenum = 0,  offset = 0;
-    char *name;
-    int argnum;
-    int istext=0; /*check if text*/
-    while (fgets(buf, sizeof(buf), input)){
-        linenum ++;
-        /* skip comments */
-        skip_comments(buf);
-        if(strlen(buf)==0) continue;
-        name = strtok(buf, IGNORE_CHARS);
-        if(name){
-            /*check if text or data*/
-            if(strcmp(name,".data")==0){
-                istext=0;
-                continue;
-            }
-            if(strcmp(name,".text")==0){
-                istext=1;
-                continue;
-            }
-            /* Reads STR and determines whether it is a label*/
-            if(istext==0){ /*data*/
-                if(add_if_label(linenum, name, offset, table,0)==0){
-                    error = -1;
-                    raise_extra_argument_error(argnum, name);
-                }
-                else name = strtok(NULL, IGNORE_CHARS);
-                if (name == NULL) continue;
-                /*valid instruction*/
-                if (strcmp(name,".word")==0){
-                    while(name!=NULL){
-                        Byte temp[8];
-                        translate_num_32((long*)temp,name);
-                        memcpy(buffer+offset-DATA_BASE,temp,4);
-                        offset+=4;
-                    }
-                }
-                else if(strcmp(name,".half")==0){
-                    while(name!=NULL){
-                        Byte temp[8];
-                        translate_num_32((long*)temp,name);
-                        memcpy(buffer+offset-DATA_BASE,temp,2);
-                        offset+=2;
-                    }
-                }
-                else if(strcmp(name,".byte")==0){
-                    while(name!=NULL){
-                        Byte temp[8];
-                        translate_num_32((long*)temp,name);
-                        memcpy(buffer+offset-DATA_BASE,temp,1);
-                        offset+=1;
-                    }
-                }
-                else{
-                    error=-1;
-                    raise_extra_argument_error(linenum,name);
-                }
-            }
-            else if(istext==1){
-                if(add_if_label(linenum,name,offset,table,0)!=0){
-                    name=strtok(NULL,IGNORE_CHARS);
-                }
-                else{
-                    error=-1;
-                    raise_extra_argument_error(linenum,name);
-                }
-                args[argnum]=name;
-                argnum++;
-                if(argnum>=MAX_ARGS){
-                    error=-1;
-                    raise_extra_argument_error(linenum,name);
-                }
-            }
-            if(istext==0){ /*data*/
-                write_static_data(data,buffer);
-            }
-            if(istext==1){ /*text*/
-                write_original_code(original,name,args,argnum);
-            }
-        }
-
-    }
-            
-        
-    /* write table */
-    write_table(table, original);
-    free_table(table);
-    /* no characters left */
-    return error;
 }
 
 /* Second pass of the assembler.
@@ -288,47 +192,12 @@ int pass_one(FILE *input, FILE *original, FILE *symtbl, FILE *data) {
    If an error is reached, DO NOT EXIT the function. Keep translating the rest of
    the document, and at the end, return -1. Return 0 if no errors were encountered. */
 
+
 int pass_two(FILE *original, FILE *symtbl, FILE *basic, FILE *machine) {
+
     /* YOUR CODE HERE */
-    SymbolTable *table = create_table_from_file(SYMBOLTBL_UNIQUE_NAME,symtbl);
-    char *args[MAX_ARGS];
-    int error = 0;
-    char buf[BUF_SIZE];
-    /* line number & byte offset */
-    int linenum = 0,  offset = 0;
-    char *name = NULL; char* temp= NULL;
-    int argnum;int transinst;
-    while (fgets(buf, sizeof(buf), original)){
-        linenum ++;
-        temp = strtok(buf, IGNORE_CHARS);
-        if(temp) name = temp;
-        else{
-            error =-1;
-            continue;
-        }
-        if(!strcmp(temp,"-")) continue;/* if '-' continue */
-        argnum = 0;
-        /* step to the next line if there is no character left*/
-        temp = strtok(NULL,IGNORE_CHARS);
-        while(temp!=NULL){
-            args[argnum] = temp;
-            temp = strtok(NULL,IGNORE_CHARS);
-            argnum++;
-        }
-        /* translate the instruction */
-        transinst = translate_inst(basic, machine, name, args, argnum, 4*(linenum-1), table);
-        if (!transinst){ /* 0 if error */
-            raise_instruction_error(linenum, name, args, argnum);
-            error=-1;
-        }
-        else{/* add offset */
-            offset += 4;
-        }
-    }
-    /* no characters left */
-    free_table(table);
-    return error;
 }
+
 
 /*******************************
  * Do Not Modify Code Below
