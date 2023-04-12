@@ -6,11 +6,13 @@
 */
 
 #include <stdio.h>
+/* Insert some code quality */
 #include <stdlib.h>
 #include <string.h>
-
+/* Insert some code quality */
 #include "tables.h"
 #include "translate.h"
+/* Insert some code quality */
 #include "translate_utils.h"
 
 /* Writes data during the assembler's first pass to OUTPUT. 
@@ -24,8 +26,10 @@
  */
 
 int write_static_data(FILE *output, Byte *buf) {
+    /* Insert some code quality */
     fprintf(output, "%08x\n", *((Word*)buf));
     memcpy(buf, buf+4, 4);
+    /* Insert some code quality */
     memset(buf+4, 0, 4);
     return 0;
 }
@@ -44,7 +48,7 @@ unsigned write_original_code(FILE *output, const char *name, char **args,
                              int num_args) {
     long imm;
     unsigned num_basic_code=0;
-
+    /* Insert some code quality */
     if (!output || !name || !args)
         return 0;
 
@@ -85,6 +89,7 @@ unsigned write_original_code(FILE *output, const char *name, char **args,
         else
             num_basic_code = 2;
     }
+    /* other commands */
     else{
         num_basic_code = 1;
     }
@@ -92,7 +97,7 @@ unsigned write_original_code(FILE *output, const char *name, char **args,
     write_inst_string(output, name, args, num_args);
     if(num_basic_code>1)
         fprintf(output, "-\n");
-
+    /* return */
     return num_basic_code;
 }
 
@@ -131,28 +136,23 @@ unsigned write_original_code(FILE *output, const char *name, char **args,
    Returns the number of instructions written (so 0 if there were any errors).
  */
 
-
 int translate_inst(FILE *basic_code, FILE *machine_code, const char *name, char **args, 
                    size_t num_args, uint32_t addr, SymbolTable *symtbl)
 {
-    char *sub_args[3];
+    char *sub_args[3]; /*uisec*/
     char buf[100];
-    long imm, head;
-    /* uiSec, addSec*/
-
+    long imm, head, uiSec, addSec;
     /* early error handling on invalid arguments */
     if (!basic_code || !machine_code || !name || !args)
         return 0;
-
     if (strcmp(name, "beqz") == 0) {
         /* check count of arguments */
-        if (num_args != 2)
-            return 0;
-
+        if (num_args != 2) return 0;
         /* Setup parameters */
         sub_args[0] = args[0];
         sub_args[1] = "x0";
         sub_args[2] = args[1];
+        /* error return 0 */
         if(write_instruction(basic_code, machine_code, "beq", sub_args, 3, addr, symtbl)==-1)
             return 0;
         /* error if not successful */
@@ -162,7 +162,6 @@ int translate_inst(FILE *basic_code, FILE *machine_code, const char *name, char 
         /* check count of arguments */
         if (num_args != 2)
             return 0;
-
         /* Setup parameters */
         sub_args[0] = args[0];
         sub_args[1] = "x0";
@@ -178,12 +177,13 @@ int translate_inst(FILE *basic_code, FILE *machine_code, const char *name, char 
             return 0;
         /* Setup parameters */
         sub_args[0] = "x0";
-        imm = get_addr_for_symbol(symtbl, args[0]);
+        /*imm = get_addr_for_symbol(symtbl, args[0]);
         if (imm == -1) return 0;
         imm = imm - addr;
-        sprintf(buf, "%d", STATIC_CAST(int, imm));
-        sub_args[1] = buf;
-        if(write_instruction(basic_code, machine_code, "jal", sub_args, 3, addr, symtbl)==-1)
+        sprintf(buf, "%d", STATIC_CAST(int, imm));*/
+        sub_args[1] = args[0];
+            /* error return 0 */
+        if(write_instruction(basic_code, machine_code, "jal", sub_args, 2, addr, symtbl)==-1)
             return 0;
         /* error if not successful */
         return 1;
@@ -192,10 +192,11 @@ int translate_inst(FILE *basic_code, FILE *machine_code, const char *name, char 
     {
         /* YOUR CODE HERE */
         if(num_args!=1) return 0;
+            /* error return 0 */
         sub_args[0] = "x0";
         sub_args[1] = args[0];
         sub_args[2] = "0x0";
-     
+            /* error return 0 */
         if(write_instruction(basic_code, machine_code, "jalr", sub_args, 3, addr, symtbl)==-1)
             return 0;
         /* error if not successful */
@@ -207,28 +208,36 @@ int translate_inst(FILE *basic_code, FILE *machine_code, const char *name, char 
         if (num_args != 2 && num_args != 1)
             return 0;
         if (num_args == 1){ 
-            sub_args[0] = "x0";
-            sub_args[1] = args[0];  
+            /* error return 0 */
+            sub_args[0] = "x1";
+            sub_args[1] = args[0]; 
+            /* error return 0 */
             if(write_instruction(basic_code, machine_code, "jal", sub_args, 2, addr, symtbl)==-1) return 0;
+            return 1;
         }
+            /* error return 0 */
         if(num_args == 2){
             if(write_instruction(basic_code, machine_code, "jal", args, 2, addr, symtbl)==-1) return 0;
+            return 1;
         }
-        return 1;
+         return 1;
         /* YOUR CODE HERE */
     }
     else if (strcmp(name, "jalr") == 0)
     {
         /* YOUR CODE HERE */
         if (num_args == 3) {
+            /* error return 0 */
             if (write_instruction(basic_code, machine_code, "jalr", args, 3, addr, symtbl)==-1)
                 return 0;
+            /* error return 1 */
             return 1;
         }
+            /* error return 0 */
         if (num_args != 1)
             return 0;
         /* Setup parameters */
-        sub_args[0] = "x0";
+        sub_args[0] = "x1";
         sub_args[1] = args[0];
         sub_args[2] = "0x0";
         if(write_instruction(basic_code, machine_code, "jalr", sub_args, 3, addr, symtbl)==-1)
@@ -269,47 +278,92 @@ int translate_inst(FILE *basic_code, FILE *machine_code, const char *name, char 
     else if (strcmp(name, "lw") == 0) {
         /* YOUR CODE HERE */
         /* check count of arguments */
-        if (num_args != 3)
+        if (num_args == 3) {
+            if (write_instruction(basic_code, machine_code, "lw", args, 3, addr, symtbl)==-1)
+                return 0;
+            return 1;
+        }
+        if (num_args != 2)
             return 0;
+        /* Get the symbol address */
+        imm = get_addr_for_symbol(symtbl, args[1]);
+        if(imm==-1)
+            return 0;
+        /* Get the symbol offset from current PC */
+        imm = (imm - addr);
+        /* Setup parameters for auipc */
+        head = (imm+0x800)>>12;
+        sprintf(buf, "%d", STATIC_CAST(int,head));
         sub_args[0] = args[0];
-        sub_args[1] = args[1];
-        sub_args[2] = args[2];
+        sub_args[1] = buf;
+        /* auipc */
+        if(write_instruction(basic_code, machine_code, "auipc", sub_args, 2, addr, symtbl)==-1)
+            return 0;
+        /* Setup parameters for addi */
+        imm = imm - (head<<12);
+        sprintf(buf, "%d", STATIC_CAST(int,imm));
+        sub_args[0] = args[0];
+        sub_args[1] = buf;
+        sub_args[2] = args[0];
         /* lw */
-        if(write_instruction(basic_code, machine_code, "lw", sub_args, 3, addr, symtbl)==-1)
+        if(write_instruction(basic_code, machine_code, "lw", sub_args, 3, addr+4, symtbl)==-1)
             return 0;
         /* error if not successful */
-        return 1;
+        return 2;
     }
     else if (strcmp(name, "li") == 0)
     {
-        if (num_args != 2) return 0;
-        if (translate_num_32(&imm, args[1]) == -1)
+        /* YOUR CODE HERE */
+        /* check immediate */
+        if(translate_num_32(&imm, args[1]) == -1)
             return 0;
-        if (_INT12_MIN_ <= imm && imm <= _INT12_MAX_)
-        {
-            head = (imm+0x800)>>12;
-            sprintf(buf, "%d", STATIC_CAST(int,head));
+        /* check count of arguments */
+        if(num_args != 2)
+            return 0;
+        /*small one*/
+        if(_INT12_MIN_ <= imm && imm <= _INT12_MAX_) {
+            sub_args[0] = args[0];
+            sub_args[1] = "x0";
+            sub_args[2] = args[1];
+            /* addi */
+            if(write_instruction(basic_code, machine_code, "addi", sub_args, 3, addr, symtbl)==-1)
+                return 0;
+            return 1;
+        }
+        else {
+            /* the lower immediate */
+            uiSec = ((imm >> 12) & 0xFFFFF);
+            /* the upper immediate */
+            addSec = (imm & 0xFFF);
+            /* extension */
+            if((addSec & (1UL << 11)) != 0)
+                uiSec+=1, sign_extension(&addSec, addSec, 12);
+            /* write as decimal format */
+            sprintf(buf, "%u", (unsigned int)uiSec);
             sub_args[0] = args[0];
             sub_args[1] = buf;
+            /* lui */
             if(write_instruction(basic_code, machine_code, "lui", sub_args, 2, addr, symtbl)==-1)
                 return 0;
-            imm = imm - (head<<12);
-            addr += 4;
+            /* write as decimal format */
+            sprintf(buf, "%d", (int)addSec);
+            sub_args[0] = args[0];
+            sub_args[1] = args[0];
+            sub_args[2] = buf;
+            /* addi */
+            if(write_instruction(basic_code, machine_code, "addi", sub_args, 3, addr, symtbl)==-1)
+                return 0;
+            return 2;
         }
-        sprintf(buf, "%d", STATIC_CAST(int,head));
-        sub_args[0] = args[0];
-        sub_args[2] = "x0";
-        sub_args[1] = buf;
-        if(write_instruction(basic_code, machine_code, "addi", sub_args, 3, addr, symtbl)==-1)
-            return 0;
     }
     else if (strcmp(name, "mv") == 0){
-        if (num_args != 2)
-            return 0;
+        if (num_args != 2) return 0;
+        /* subargs */
         sub_args[0] = args[0];
         sub_args[1] = args[1];
-        sub_args[2] = "x0";
-        if(write_instruction(basic_code, machine_code, "add", sub_args, 3, addr, symtbl)==-1)
+        sub_args[2] = "0x0";
+        /* addi */
+        if(write_instruction(basic_code, machine_code, "addi", sub_args, 3, addr, symtbl)==-1)
             return 0;
         return 1;
     }
@@ -320,9 +374,11 @@ int translate_inst(FILE *basic_code, FILE *machine_code, const char *name, char 
         /* error if not successful */
         return 1;
     }
-    
     return 0; 
 }
+
+
+
 
 /* Writes the instruction in basic and hexadecimal format to OUTPUT during 
    pass #2.
@@ -352,6 +408,8 @@ int write_instruction(FILE *basic_code, FILE *machine_code, const char *name, ch
 {   
     /** R-format */
     /* add */
+    addr = addr;
+    symtbl = symtbl;
     if (strcmp(name, "add") == 0)
         return write_rtype(basic_code, machine_code, name, 0x33, 0x00, 0x00, args, num_args);
     /* mul */
@@ -393,9 +451,6 @@ int write_instruction(FILE *basic_code, FILE *machine_code, const char *name, ch
     /* and */
     else if (strcmp(name, "and") == 0)
         return write_rtype(basic_code, machine_code, name, 0x33, 0x07, 0x00, args, num_args);
-    /* YOUR CODE HERE */
-
-    /** I-format */
     /* lb */
     else if (strcmp(name, "lb") == 0)
         return write_itype(basic_code, machine_code, name, 0x03, 0x00, args, num_args, symtbl);
@@ -444,8 +499,6 @@ int write_instruction(FILE *basic_code, FILE *machine_code, const char *name, ch
     /* ecall */
     else if (strcmp(name, "ecall") == 0)
         return write_itype(basic_code, machine_code, name, 0x73, 0x00, args, num_args, symtbl);
-
-    /** S-format */
     /* sb */
     else if (strcmp(name, "sb") == 0)
         return write_stype(basic_code, machine_code, name, 0x23, 0x00, args, num_args, symtbl);
@@ -455,8 +508,6 @@ int write_instruction(FILE *basic_code, FILE *machine_code, const char *name, ch
     /* sw */
     else if (strcmp(name, "sw") == 0)
         return write_stype(basic_code, machine_code, name, 0x23, 0x02, args, num_args, symtbl);
-
-    /** SB-format */
     /* beq */
     else if (strcmp(name, "beq") == 0)
         return write_sbtype(basic_code, machine_code, name, 0x63, 0x00, args, num_args, addr, symtbl);
@@ -475,24 +526,21 @@ int write_instruction(FILE *basic_code, FILE *machine_code, const char *name, ch
     /* bgeu */
     else if (strcmp(name, "bgeu") == 0)
         return write_sbtype(basic_code, machine_code, name, 0x63, 0x07, args, num_args, addr, symtbl);
-    
-    /** U-format */
     /* auipc */
     else if (strcmp(name, "auipc") == 0)
         return write_utype(basic_code, machine_code, name, 0x17, args, num_args, symtbl);
     /* lui */
     else if (strcmp(name, "lui") == 0)
         return write_utype(basic_code, machine_code, name, 0x37, args, num_args, symtbl);
-
-    /** UJ-format */
     /* jal */
     else if (strcmp(name, "jal") == 0)
-        return write_utype(basic_code, machine_code, name, 0x6f, args, num_args, symtbl);
-        
-    
+        return write_ujtype(basic_code, machine_code, name, 0x6f, args, num_args, addr, symtbl);
+    /* YOUR CODE HERE */
+    /* else condition */
     else
         return -1;
 }
+
 
 
 /* A helper function for writing most R-type instructions. You should use
@@ -512,32 +560,24 @@ int write_rtype(FILE *basic_code, FILE *machine_code, const char *name, uint8_t 
     /*  Perhaps perform some error checking? */
     int rd, rs, rt;
     uint32_t instruction;
+    /* unused args */
     basic_code= basic_code;
+    if(!basic_code || !machine_code || !name || !args) return -1;
     /* R-format requires rd rs rt */
-    if (num_args != 3){
-        return -1;
-    }
-
+    if (num_args != 3) return -1;
     /* destination register */
     rd = translate_reg(args[0]);
     /* source register 1 */
     rs = translate_reg(args[1]);
     /* source register 2 */
     rt = translate_reg(args[2]);
-
     /* error checking for register ids */
-    if (rd == -1 || rs == -1 || rt == -1)
-    {
-        return -1;
-    }
-
+    if (rd == -1 || rs == -1 || rt == -1) return -1;
     /* write basic code */
     write_inst_rtype(basic_code, name, rd, rs, rt);
-
     /* generate instruction */
     instruction = opcode + (rd << 7) + (funct3 << 12) + (rs << 15) +
                   (rt << 20) + (funct7 << 25);
-
     /* write machine code */
     write_inst_hex(machine_code, instruction);
     return 0;
@@ -547,37 +587,60 @@ int write_itype(FILE *basic_code, FILE *machine_code, const char *name, uint8_t 
                 uint8_t funct3, char **args, size_t num_args, SymbolTable *symbol)
 {
     /* YOUR CODE HERE */
-    int rd, rs, ret;
-    long int imm;
+    int rd=0, rs=0;
     uint32_t instruction;
-    basic_code=basic_code;
-    name =name ;
+    long int imm=0;
+    int jud;
     symbol = symbol;
-    /* I-format requires rd rs imm */
-    if (num_args != 3){
+    /* i-format requires rd rs imm*/
+    /* check count of argument */
+    if (opcode != 0x73&&num_args != 3)
         return -1;
-    }
-    /* destination register */
-    rd = translate_reg(args[0]);
-    if(opcode==0x03){
-        /* immediate */
-        ret = translate_num_12(&imm, args[1]);
-        /* source register*/
+    if (opcode == 0x73&&num_args != 0)
+        return -1;
+    /* rd imm rs */
+    if (opcode == 0x03) {
+        /* destination register */
+        rd = translate_reg(args[0]);
+        /* imm */
+        jud = translate_num_12(&imm, args[1]);
+        if(jud == -1)
+            return -1;
+        /* destination register */
         rs = translate_reg(args[2]);
     }
-    else{
+    /* rd rs imm */
+    else if (opcode == 0x13|| opcode == 0x67) {
+        /* destination register */
+        rd = translate_reg(args[0]);
+        /* source register 1 */
         rs = translate_reg(args[1]);
-        ret = translate_num_12(&imm, args[2]);
+        /* imm */
+        jud = translate_num_12(&imm, args[2]);
+        if(jud == -1)
+            return -1;
     }
-    /* error checking for register ids */
-    if (rd == -1 || rs == -1 || ret == -1){
+    /* error checking for register ids and imm */
+    if(opcode != 0x73)
+    if (rd == -1 || rs == -1) {
         return -1;
     }
+    /* check arith -1??? */
+    if ((strcmp(name, "srai") == 0|| strcmp(name, "srli") == 0 || strcmp(name, "slli") == 0)&&(imm > 31 || imm < 0))
+        return -1;
     /* write basic code */
-    write_inst_sbtype(basic_code, name, rd, rs, imm);
+    if (opcode == 0x03)
+        write_inst_stype(basic_code, name, rd, rs, imm);
+    /* different situation */
+    else if(opcode == 0x73)
+        write_inst_ecall(basic_code, name);
+    else
+        write_inst_sbtype(basic_code, name, rd, rs, imm);
     /* generate instruction */
-    instruction = opcode + (rd << 7) + (funct3 << 12) + (rs << 15) + (imm << 20);
-
+    instruction = opcode + (rd << 7) + (funct3 << 12) + (rs << 15) +(imm << 20);
+    /* arithmetic point */
+    if (strcmp(name, "srai")==0)
+        instruction = instruction+(0x4 << 28);
     /* write machine code */
     write_inst_hex(machine_code, instruction);
     return 0;
@@ -590,13 +653,10 @@ int write_stype(FILE *basic_code, FILE *machine_code, const char *name, uint8_t 
     int rs, rt, ret;
     long int imm;
     uint32_t instruction;
-    basic_code=basic_code;
-    symbol=symbol;
-    name=name;
+    /* deal with the unused args */
+    basic_code=basic_code;symbol=symbol;name=name;
     /* S-format requires rt rs imm */
-    if (num_args != 3){
-        return -1;
-    }
+    if (num_args != 3) return -1;
     /* destination register */
     rs = translate_reg(args[0]);
     /* immediate */
@@ -604,19 +664,15 @@ int write_stype(FILE *basic_code, FILE *machine_code, const char *name, uint8_t 
     /* source register*/
     rt = translate_reg(args[2]);
     /* error checking for register ids */
-    if (rt == -1 || rs == -1 || ret == -1){
-        return -1;
-    }
-    
+    if (rt == -1 || rs == -1 || ret == -1) return -1;
+    write_inst_stype(basic_code,name,rs,rt,imm);/*testing*/
     /*long int imm1 = imm & 0x0000001F;*/
     /*long int imm2 = imm >>5;*/
     /* generate instruction */
-    instruction = opcode + ((imm & 0x0000001F ) << 7) + (funct3 << 12) + (rs << 15) + (rt << 20) + ((imm >>5)<<25);
-
+    instruction = opcode + ((imm & 0x0000001F ) << 7) + (funct3 << 12) + (rt << 15) + (rs << 20) + ((imm >>5)<<25);
     /* write machine code */
     write_inst_hex(machine_code, instruction);
     return 0;
-    
 }
 
 /* Hint: the way for branch to calculate relative address. 
@@ -636,34 +692,34 @@ int write_sbtype(FILE *basic_code, FILE *machine_code, const char *name, uint8_t
     /* adress of label */
     int64_t label;
     uint32_t instruction;
-    basic_code=basic_code;
-    symbol=symbol;
-    name=name;
+    /* deal with the unused args */
+    basic_code=basic_code;symbol=symbol;name=name;
     /* SB-format requires rt rs imm */
-    if (num_args != 3){
-        return -1;
-    }
+    if (num_args != 3) return -1;
     /* source register */
     rs = translate_reg(args[0]);
     /* source2 */
     rt = translate_reg(args[1]);
-    /* error checking for register ids */
-    if (rt == -1 || rs == -1 ){
-        return -1;
-    }
     /* get adress */
     label = get_addr_for_symbol(symbol, args[2]);
+    /* error checking for register ids */
+    if (rt == -1 || rs == -1 ||label ==-1) return -1;
     if(label>=0){
+        /* get the relative address */
         imm = label - addr;
-        if(imm <= _INT12_MAX_ && imm >= _INT12_MIN_){ /* imm[11],imm[4:1],imm[10:5],imm[12] */
-            long int imm1 = (imm & 0x00000800)>>11,imm2 = (imm & 0x0000001E)>>1, imm3 = (imm & 0x000007E0)>>5, imm4 = (imm & 0x00001000)>>12;
+        if(imm <= _INT12_MAX_ && imm >= _INT12_MIN_){ 
+            write_inst_sbtype(basic_code,name,rs,rt,imm);/*testing*/
+            /* imm[11],imm[4:1],imm[10:5],imm[12] */
             /* generate instruction */
-            instruction = opcode + (imm1 << 7) + (imm2 << 8 ) + (funct3 << 12) + (rs << 15) + (rt << 20) + (imm3<<25) + (imm4<<31);
+            instruction = opcode + ( ((imm & 0x00000800)>>11) << 7) + (((imm & 0x0000001E)>>1)<< 8 ) + (funct3 << 12) + (rs << 15) + (rt << 20) + (((imm & 0x000007E0)>>5)<<25) + (( (imm & 0x00001000)>>12)<<31);
             /* write machine code */
             write_inst_hex(machine_code, instruction);
             return 0;
         }
+        else return -1;
+        /* imm > 20 */
     }
+    /* err */
     return -1;
 }
 
@@ -674,22 +730,18 @@ int write_utype(FILE *basic_code, FILE *machine_code, const char *name, uint8_t 
     int rd, ret;
     long int imm;
     uint32_t instruction;
-    basic_code=basic_code;
-    symbol=symbol;
-    name=name;
+    /* unused args */
+    basic_code=basic_code;symbol=symbol; name=name;
     /* U-format requires rd imm */
-    if (num_args != 2){
-        return -1;
-    }
+    if (num_args != 2) return -1;
     /* destination register */
     rd = translate_reg(args[0]);
     /* immediate */
-    ret = translate_num(&imm, args[1],_UINT20_MAX_,0);
+    ret = translate_num(&imm, args[1],0,_UINT20_MAX_);
     /* error checking for register ids */
-    if (rd == -1 || ret == -1){
-        return -1;
-    }
+    if (rd == -1 || ret == -1) return -1;
     /* generate instruction */
+    write_inst_utype(basic_code,name,rd,imm);/*testing*/
     instruction = opcode +  (rd << 7) + (imm << 12);
     /* write machine code */
     write_inst_hex(machine_code, instruction);
@@ -707,31 +759,26 @@ int write_ujtype(FILE *basic_code, FILE *machine_code, const char *name, uint8_t
     /* adress of label */
     int64_t label;
     uint32_t instruction;
-    basic_code=basic_code;
-    symbol=symbol;
-    name=name;
+    /* unused args */
+    basic_code=basic_code;symbol=symbol;name=name;
     /* UJ-format requires rd imm */
-    if (num_args != 2){
-        return -1;
-    }
+    if (num_args != 2) return -1;
     /* source register */
     rd = translate_reg(args[0]);
     /* error checking for register ids */
-    if (rd == -1 ){
-        return -1;
-    }
+    if (rd == -1 ) return -1;
     /* get adress */
-    label = get_addr_for_symbol(symbol, args[1]);
-    if(label>=0){
-        imm = label - addr;
-        if(imm <= _INT12_MAX_ && imm >= _INT12_MIN_){ /* imm[19：12],imm[11],imm[10:1],imm[20] */
-            long int imm1 = (imm & 0x000FF000),imm2 = (imm & 0x00000800)>>11, imm3 = (imm & 0x000007FE)>>1, imm4 = (imm & 0x00100000)>>20;
-            /* generate instruction */
-            instruction = opcode + (rd << 7) + (imm1 << 12 ) + (imm2 << 20) + (imm3 << 21) + (imm4<< 31) ;
-            /* write machine code */
-            write_inst_hex(machine_code, instruction);
-            return 0;
-        }
-    }
-    return -1;
+    if (get_addr_for_symbol(symbol,args[1])!=-1) label = get_addr_for_symbol(symbol, args[1]);
+    else return -1;
+    /* relative addr */
+    imm = label - addr;
+    if(imm > _INT12_MAX_ || imm < _INT12_MIN_) return -1;
+    write_inst_utype(basic_code, name,rd,imm);/*testing*/
+        /* imm[19：12],imm[11],imm[10:1],imm[20] */
+        /* generate instruction */
+    instruction = opcode + (rd << 7) + (((imm & 0x000FF000)>>12) << 12 ) + (((imm & 0x00000800)>>11) << 20) + (((imm & 0x000007FE)>>1) << 21) + (((imm & 0x00100000)>>20)<< 31) ;
+        /* write machine code */
+    write_inst_hex(machine_code, instruction);
+    return 0;
+    /*err*/
 }

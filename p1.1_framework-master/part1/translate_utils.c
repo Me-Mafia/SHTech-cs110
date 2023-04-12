@@ -116,6 +116,7 @@ int translate_num(long int *output, const char *str, long int lower_bound,
     if (!str || !output || lower_bound > upper_bound){
         return -1;
     }
+    /* comment */
     res = strtol(str, &ptr, 0);
     if (*ptr != '\0'){
         return -1;

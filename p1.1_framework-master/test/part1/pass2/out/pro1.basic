@@ -1,0 +1,43 @@
+add x12 x10 x11
+mul x12 x10 x11
+sub x12 x10 x11
+sll x12 x10 x11
+mulh x12 x10 x11
+slt x12 x10 x11
+sltu x12 x10 x11
+xor x12 x10 x11
+div x12 x10 x11
+srl x12 x10 x11
+sra x12 x10 x11
+or x12 x10 x11
+rem x12 x10 x11
+and x12 x10 x11
+lb x12 4(x11)
+lh x12 4(x11)
+lw x12 4(x11)
+lbu x12 4(x11)
+lhu x12 4(x11)
+addi x10 x11 80
+addi x10 x11 -80
+slli x12 x11 2
+slti x12 x11 1
+slti x12 x11 -1
+sltiu x12 x11 1
+sltiu x12 x11 -1
+xori x12 x11 1
+xori x12 x11 -1
+srli x12 x11 1
+srai x12 x11 1
+ori x12 x11 1
+ori x12 x11 -1
+andi x12 x11 1
+andi x12 x11 -1
+jalr x1 x11 4
+ecall
+sb x12 0(x11)
+sh x12 0(x11)
+sw x12 0(x11)
+auipc x1 4
+lui x1 4
+addi x1 x0 1
+addi x12 x11 0

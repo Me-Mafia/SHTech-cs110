@@ -7,10 +7,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+    /* code quality */
 #include <string.h>
 
 #include "tables.h"
 
+    /* code quality */
 const int SYMBOLTBL_NON_UNIQUE = 0;
 const int SYMBOLTBL_UNIQUE_NAME = 1;
 
@@ -67,6 +69,7 @@ void free_table(SymbolTable *table)
     if (!table) {
         return;
     }
+    /* code quality */
     for (i=0; i != table->len; i++)
         free(table->tbl[i].name); 
     free(table->tbl);
@@ -95,14 +98,16 @@ int add_to_table(SymbolTable *table, const char *name, uint32_t addr, int check_
     /* YOUR CODE HERE */
     Symbol* temp;
     uint32_t i;
+    /* code quality */
     char buf[100];
     if(!table) allocation_failed();
+    /* code quality */
     if(check_align==1){
         sprintf(buf, "%d", STATIC_CAST(int,addr));
         addr_alignment_incorrect(buf);
         return -1;
     }
-    
+    /* code quality */
     if (table->mode == SYMBOLTBL_UNIQUE_NAME){ 
         for (i = 0; i < table->len;i++){ /* Check if exist*/
             if (strcmp(table->tbl[i].name, name) == 0){ 
@@ -116,11 +121,13 @@ int add_to_table(SymbolTable *table, const char *name, uint32_t addr, int check_
         table->tbl = realloc(table->tbl, table->cap* sizeof(Symbol));
         if(!table) allocation_failed();
     }
+    /* code quality */
     temp = &(table->tbl)[table->len];
     temp->name = (char *)malloc(strlen(name) + 1); /*initialize */
     strcpy(temp -> name, name); /*add */
     temp -> addr = addr;
     (table -> len)++;
+    /* code quality */
     return 0;
 }
 
@@ -132,8 +139,10 @@ int64_t get_addr_for_symbol(SymbolTable *table, const char *name)
     /* YOUR CODE HERE */
     Symbol* temp;
     uint32_t i;
+    /* code quality */
     if(!table) return -1;
-    for (i = 0; i < table->len; i++){ /* Check if exist*/
+    for (i = 0; i < table->len; i++){ 
+        /* Check if exist*/
         temp = &(table->tbl)[i];
         if (strcmp(temp->name, name) == 0){ /* name already*/
             return temp->addr; 
@@ -151,7 +160,7 @@ void write_table(SymbolTable *table, FILE *output)
     if(table && output){
         Symbol *temp;
         uint32_t i;
-        for (i = 0; i < table->len;i++){  /* write */
+        for (i = 0; i < table->len;i++){   /* write */
             temp = &(table->tbl)[i];
             write_sym(output, temp->addr, temp->name);
         }
@@ -165,10 +174,13 @@ void write_table(SymbolTable *table, FILE *output)
  */
 SymbolTable *create_table_from_file(int mode, FILE *file)
 {
+    /* code quality */
     SymbolTable *symtbl = create_table(mode);
     char buf[1024];
+    /* code quality */
     while (fgets(buf, sizeof(buf), file))
     {
+    /* code quality */
         char *name, *addr_str, *end_ptr;
         uint32_t addr;
         addr_str = strtok(buf, "\t");

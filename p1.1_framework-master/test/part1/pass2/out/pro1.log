@@ -1,0 +1,12 @@
+Error - invalid instruction at line 23: slli a2 a1 -1
+Error - invalid instruction at line 31: srli a2 a1 -1
+Error - invalid instruction at line 33: srai a2 a1 -1
+Error - invalid instruction at line 43: beq a2 a1 4
+Error - invalid instruction at line 44: bne a2 a1 4
+Error - invalid instruction at line 45: blt a2 a1 4
+Error - invalid instruction at line 46: bge a2 a1 4
+Error - invalid instruction at line 47: bltu a2 a1 4
+Error - invalid instruction at line 48: bgeu a2 a1 4
+Error - invalid instruction at line 51: jal ra 1
+Error - invalid instruction at line 52: jal ra -1
+One or more errors encountered during assembly operation.
