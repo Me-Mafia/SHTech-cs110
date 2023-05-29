@@ -6,10 +6,13 @@
 
 struct log_entry{
     int src_ip;
-    char URL[128];
-    long reference_time;
-    char bro[128];
     int status;
+    long reference_time;
+    /*
+    struct: src_ip, status, ref_time
+    */
+    char URL[128];
+    char bro[128];
 }logs[NUM_ENTRIES];
 
 void tranverse(){

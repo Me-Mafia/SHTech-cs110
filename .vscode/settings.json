@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "assert.h": "c",
+        "stdio.h": "c",
+        "*.tcc": "c",
+        "fstream": "c",
+        "istream": "c",
+        "streambuf": "c"
+    }
+}
